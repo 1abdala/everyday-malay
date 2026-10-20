@@ -1,0 +1,247 @@
+{
+  "id": "grab-01",
+  "title": "Taking a Grab",
+  "scene": "Your Grab has arrived. You get in.",
+  "icon": "🚗",
+  "minutes": 5,
+  "variety": "KL spoken Malay",
+  "review": {
+    "status": "draft"
+  },
+  "dialogue": [
+    {
+      "id": "line-1",
+      "who": "npc",
+      "ms": "Hi. Nak pergi KLCC, ya?",
+      "en": "Hi. Going to KLCC, right?",
+      "audio": {
+        "normal": "/audio/grab-01/line-1-normal.mp3",
+        "slow": "/audio/grab-01/line-1-slow.mp3"
+      }
+    },
+    {
+      "id": "line-2",
+      "who": "you",
+      "ms": "Ya, betul.",
+      "en": "Yes, that's right.",
+      "audio": {
+        "normal": "/audio/grab-01/line-2-normal.mp3",
+        "slow": "/audio/grab-01/line-2-slow.mp3"
+      }
+    },
+    {
+      "id": "line-3",
+      "who": "you",
+      "ms": "Boleh pasang aircond?",
+      "en": "Can you turn on the aircon?",
+      "audio": {
+        "normal": "/audio/grab-01/line-3-normal.mp3",
+        "slow": "/audio/grab-01/line-3-slow.mp3"
+      }
+    },
+    {
+      "id": "line-4",
+      "who": "npc",
+      "ms": "Boleh.",
+      "en": "Sure.",
+      "audio": {
+        "normal": "/audio/grab-01/line-4-normal.mp3",
+        "slow": "/audio/grab-01/line-4-slow.mp3"
+      }
+    },
+    {
+      "id": "line-5",
+      "who": "npc",
+      "ms": "Ikut jalan ni ke?",
+      "en": "Take this road?",
+      "audio": {
+        "normal": "/audio/grab-01/line-5-normal.mp3",
+        "slow": "/audio/grab-01/line-5-slow.mp3"
+      }
+    },
+    {
+      "id": "line-6",
+      "who": "you",
+      "ms": "Ikut GPS je.",
+      "en": "Just follow the GPS.",
+      "audio": {
+        "normal": "/audio/grab-01/line-6-normal.mp3",
+        "slow": "/audio/grab-01/line-6-slow.mp3"
+      }
+    },
+    {
+      "id": "line-7",
+      "who": "you",
+      "ms": "Berhenti depan sikit, tepi kedai tu.",
+      "en": "Stop a bit ahead, next to that shop.",
+      "audio": {
+        "normal": "/audio/grab-01/line-7-normal.mp3",
+        "slow": "/audio/grab-01/line-7-slow.mp3"
+      }
+    },
+    {
+      "id": "line-8",
+      "who": "npc",
+      "ms": "Kat sini boleh?",
+      "en": "Here okay?",
+      "audio": {
+        "normal": "/audio/grab-01/line-8-normal.mp3",
+        "slow": "/audio/grab-01/line-8-slow.mp3"
+      }
+    },
+    {
+      "id": "line-9",
+      "who": "you",
+      "ms": "Boleh. Terima kasih, bang.",
+      "en": "Okay. Thanks, bro.",
+      "audio": {
+        "normal": "/audio/grab-01/line-9-normal.mp3",
+        "slow": "/audio/grab-01/line-9-slow.mp3"
+      }
+    }
+  ],
+  "chips": [
+    {
+      "spoken": "nak pergi",
+      "formal": "hendak pergi",
+      "note": "spoken"
+    },
+    {
+      "spoken": "ni / tu",
+      "formal": "ini / itu",
+      "note": "spoken"
+    },
+    {
+      "spoken": "kat sini",
+      "formal": "di sini",
+      "note": "\"kat\" is everyday speech"
+    },
+    {
+      "spoken": "depan sikit",
+      "formal": "sedikit ke hadapan",
+      "note": "giving directions"
+    },
+    {
+      "spoken": "boleh?",
+      "formal": "bolehkah?",
+      "note": "spoken questions skip -kah"
+    },
+    {
+      "spoken": "je",
+      "formal": "sahaja",
+      "note": "spoken"
+    }
+  ],
+  "phrases": [
+    {
+      "ms": "Boleh pasang aircond?",
+      "en": "Can you turn on the aircon?",
+      "audio": {
+        "normal": "/audio/grab-01/phrase-1-normal.mp3",
+        "slow": "/audio/grab-01/phrase-1-slow.mp3"
+      }
+    },
+    {
+      "ms": "Ikut GPS je.",
+      "en": "Just follow the GPS.",
+      "audio": {
+        "normal": "/audio/grab-01/phrase-2-normal.mp3",
+        "slow": "/audio/grab-01/phrase-2-slow.mp3"
+      }
+    },
+    {
+      "ms": "Berhenti kat sini.",
+      "en": "Stop here.",
+      "audio": {
+        "normal": "/audio/grab-01/phrase-3-normal.mp3",
+        "slow": "/audio/grab-01/phrase-3-slow.mp3"
+      }
+    },
+    {
+      "ms": "Depan sikit.",
+      "en": "A bit ahead.",
+      "audio": {
+        "normal": "/audio/grab-01/phrase-4-normal.mp3",
+        "slow": "/audio/grab-01/phrase-4-slow.mp3"
+      }
+    },
+    {
+      "ms": "Kiri / kanan / lurus.",
+      "en": "Left / right / straight.",
+      "audio": {
+        "normal": "/audio/grab-01/phrase-5-normal.mp3",
+        "slow": "/audio/grab-01/phrase-5-slow.mp3"
+      }
+    }
+  ],
+  "task": {
+    "goal": "Confirm the trip, get the aircon on, and tell the driver where to stop.",
+    "turns": [
+      {
+        "type": "npc",
+        "ms": "Hi. Nak pergi KLCC, ya?",
+        "en": "Hi. Going to KLCC, right?",
+        "audio": "/audio/grab-01/line-1-normal.mp3",
+        "accept": [
+          "ya",
+          "ya betul",
+          "betul",
+          "ya betul klcc"
+        ],
+        "model": "Ya, betul.",
+        "hint": "Say yes."
+      },
+      {
+        "type": "prompt",
+        "en": "You're hot. Ask the driver to turn on the aircon.",
+        "accept": [
+          "boleh pasang aircond",
+          "boleh pasang aircon",
+          "boleh buka aircond",
+          "boleh pasang aircond tak"
+        ],
+        "keywords": [
+          ["boleh"],
+          ["pasang", "buka"],
+          ["aircond", "aircon"]
+        ],
+        "model": "Boleh pasang aircond?",
+        "hint": "Ask: can you ___ the aircon?"
+      },
+      {
+        "type": "npc",
+        "ms": "Ikut jalan ni ke?",
+        "en": "Take this road?",
+        "audio": "/audio/grab-01/line-5-normal.mp3",
+        "accept": [
+          "ikut gps je",
+          "ikut gps",
+          "ikut gps je bang",
+          "ikut gps je ya"
+        ],
+        "keywords": [
+          ["ikut"],
+          ["gps"]
+        ],
+        "model": "Ikut GPS je.",
+        "hint": "Tell him to follow the GPS."
+      },
+      {
+        "type": "prompt",
+        "en": "You're almost there. Ask the driver to stop here.",
+        "accept": [
+          "berhenti kat sini",
+          "berhenti sini",
+          "stop kat sini",
+          "berhenti depan sikit",
+          "depan sikit"
+        ],
+        "keywords": [
+          ["berhenti", "stop", "depan"]
+        ],
+        "model": "Berhenti kat sini.",
+        "hint": "Say 'stop here'."
+      }
+    ]
+  }
+}

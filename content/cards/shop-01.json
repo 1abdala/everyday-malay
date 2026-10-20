@@ -1,0 +1,250 @@
+{
+  "id": "shop-01",
+  "title": "At the shop counter",
+  "scene": "You're at a mini-market with a bottle of water.",
+  "icon": "🏪",
+  "minutes": 5,
+  "variety": "KL spoken Malay",
+  "review": {
+    "status": "draft"
+  },
+  "dialogue": [
+    {
+      "id": "line-1",
+      "who": "you",
+      "ms": "Maaf, ada air mineral?",
+      "en": "Excuse me, do you have bottled water?",
+      "audio": {
+        "normal": "/audio/shop-01/line-1-normal.mp3",
+        "slow": "/audio/shop-01/line-1-slow.mp3"
+      }
+    },
+    {
+      "id": "line-2",
+      "who": "npc",
+      "ms": "Ada. Kat belakang sana.",
+      "en": "Yes. Over at the back.",
+      "audio": {
+        "normal": "/audio/shop-01/line-2-normal.mp3",
+        "slow": "/audio/shop-01/line-2-slow.mp3"
+      }
+    },
+    {
+      "id": "line-3",
+      "who": "you",
+      "ms": "Terima kasih.",
+      "en": "Thank you.",
+      "audio": {
+        "normal": "/audio/shop-01/line-3-normal.mp3",
+        "slow": "/audio/shop-01/line-3-slow.mp3"
+      }
+    },
+    {
+      "id": "line-4",
+      "who": "npc",
+      "ms": "Nak beg plastik?",
+      "en": "Want a plastic bag?",
+      "audio": {
+        "normal": "/audio/shop-01/line-4-normal.mp3",
+        "slow": "/audio/shop-01/line-4-slow.mp3"
+      }
+    },
+    {
+      "id": "line-5",
+      "who": "you",
+      "ms": "Tak payah.",
+      "en": "No need.",
+      "audio": {
+        "normal": "/audio/shop-01/line-5-normal.mp3",
+        "slow": "/audio/shop-01/line-5-slow.mp3"
+      }
+    },
+    {
+      "id": "line-6",
+      "who": "npc",
+      "ms": "Semua lapan ringgit lima puluh sen.",
+      "en": "Eight ringgit fifty altogether.",
+      "audio": {
+        "normal": "/audio/shop-01/line-6-normal.mp3",
+        "slow": "/audio/shop-01/line-6-slow.mp3"
+      }
+    },
+    {
+      "id": "line-7",
+      "who": "you",
+      "ms": "Boleh bayar guna kad?",
+      "en": "Can I pay by card?",
+      "audio": {
+        "normal": "/audio/shop-01/line-7-normal.mp3",
+        "slow": "/audio/shop-01/line-7-slow.mp3"
+      }
+    },
+    {
+      "id": "line-8",
+      "who": "npc",
+      "ms": "Boleh.",
+      "en": "Yes.",
+      "audio": {
+        "normal": "/audio/shop-01/line-8-normal.mp3",
+        "slow": "/audio/shop-01/line-8-slow.mp3"
+      }
+    },
+    {
+      "id": "line-9",
+      "who": "npc",
+      "ms": "Nak resit?",
+      "en": "Want a receipt?",
+      "audio": {
+        "normal": "/audio/shop-01/line-9-normal.mp3",
+        "slow": "/audio/shop-01/line-9-slow.mp3"
+      }
+    },
+    {
+      "id": "line-10",
+      "who": "you",
+      "ms": "Tak nak, terima kasih.",
+      "en": "No thanks.",
+      "audio": {
+        "normal": "/audio/shop-01/line-10-normal.mp3",
+        "slow": "/audio/shop-01/line-10-slow.mp3"
+      }
+    }
+  ],
+  "chips": [
+    {
+      "spoken": "tak payah",
+      "formal": "tidak perlu",
+      "note": "spoken, very common"
+    },
+    {
+      "spoken": "tak nak",
+      "formal": "tidak mahu",
+      "note": "spoken"
+    },
+    {
+      "spoken": "kat belakang",
+      "formal": "di belakang",
+      "note": "\"kat\" is everyday speech"
+    },
+    {
+      "spoken": "guna",
+      "formal": "menggunakan",
+      "note": "spoken drops me-"
+    },
+    {
+      "spoken": "berapa ni?",
+      "formal": "berapakah harganya?",
+      "note": "asking the price"
+    }
+  ],
+  "phrases": [
+    {
+      "ms": "Ada ___?",
+      "en": "Do you have ___?",
+      "audio": {
+        "normal": "/audio/shop-01/phrase-1-normal.mp3",
+        "slow": "/audio/shop-01/phrase-1-slow.mp3"
+      }
+    },
+    {
+      "ms": "Berapa ni?",
+      "en": "How much is this?",
+      "audio": {
+        "normal": "/audio/shop-01/phrase-2-normal.mp3",
+        "slow": "/audio/shop-01/phrase-2-slow.mp3"
+      }
+    },
+    {
+      "ms": "Tak payah.",
+      "en": "No need.",
+      "audio": {
+        "normal": "/audio/shop-01/phrase-3-normal.mp3",
+        "slow": "/audio/shop-01/phrase-3-slow.mp3"
+      }
+    },
+    {
+      "ms": "Boleh bayar guna kad / QR?",
+      "en": "Can I pay by card / QR?",
+      "audio": {
+        "normal": "/audio/shop-01/phrase-4-normal.mp3",
+        "slow": "/audio/shop-01/phrase-4-slow.mp3"
+      }
+    },
+    {
+      "ms": "Tak nak, terima kasih.",
+      "en": "No thanks.",
+      "audio": {
+        "normal": "/audio/shop-01/phrase-5-normal.mp3",
+        "slow": "/audio/shop-01/phrase-5-slow.mp3"
+      }
+    }
+  ],
+  "task": {
+    "goal": "Ask for water, say no to a bag, pay by card, and decline a receipt.",
+    "turns": [
+      {
+        "type": "prompt",
+        "en": "Ask if the shop has bottled water.",
+        "accept": [
+          "ada air mineral",
+          "maaf ada air mineral",
+          "ada air mineral tak",
+          "bang ada air mineral",
+          "kak ada air mineral"
+        ],
+        "keywords": [
+          ["ada"],
+          ["air"],
+          ["mineral"]
+        ],
+        "model": "Maaf, ada air mineral?",
+        "hint": "Ask: do you have ___?"
+      },
+      {
+        "type": "npc",
+        "ms": "Nak beg plastik?",
+        "en": "Want a plastic bag?",
+        "audio": "/audio/shop-01/line-4-normal.mp3",
+        "accept": [
+          "tak payah",
+          "tak nak",
+          "tak payah terima kasih",
+          "tak apa"
+        ],
+        "model": "Tak payah.",
+        "hint": "Say 'no need'."
+      },
+      {
+        "type": "prompt",
+        "en": "Ask if you can pay by card.",
+        "accept": [
+          "boleh bayar guna kad",
+          "boleh bayar pakai kad",
+          "boleh guna kad",
+          "boleh bayar kad"
+        ],
+        "keywords": [
+          ["boleh"],
+          ["bayar", "guna", "pakai"],
+          ["kad"]
+        ],
+        "model": "Boleh bayar guna kad?",
+        "hint": "Ask: can I pay ___ card?"
+      },
+      {
+        "type": "npc",
+        "ms": "Nak resit?",
+        "en": "Want a receipt?",
+        "audio": "/audio/shop-01/line-9-normal.mp3",
+        "accept": [
+          "tak nak",
+          "tak nak terima kasih",
+          "tak payah",
+          "tak payah terima kasih"
+        ],
+        "model": "Tak nak, terima kasih.",
+        "hint": "Say no thanks."
+      }
+    ]
+  }
+}
