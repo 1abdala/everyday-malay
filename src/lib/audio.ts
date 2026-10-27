@@ -1,4 +1,5 @@
 import type { Card } from '../types';
+import { appAssetPath } from './assets';
 
 let currentAudio: HTMLAudioElement | null = null;
 
@@ -75,7 +76,7 @@ export function playAudio({
     return;
   }
 
-  const audio = new Audio(src);
+  const audio = new Audio(appAssetPath(src));
   currentAudio = audio;
 
   // Normal playback speed is 1.0, slow can also slow down playbackRate if needed
@@ -136,7 +137,7 @@ export function precacheCardAudio(card: Card): void {
 
   urls.forEach((url) => {
     // Trigger lightweight fetch so service worker or HTTP cache caches 200 responses
-    fetch(url, { method: 'GET', mode: 'no-cors' }).catch(() => {
+    fetch(appAssetPath(url), { method: 'GET', mode: 'no-cors' }).catch(() => {
       // Audio might not exist yet during draft, silently ignore
     });
   });

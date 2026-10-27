@@ -8,16 +8,16 @@ const playableScenarioIds = ['shop-01', 'mamak-01', 'grab-01'];
 describe('scenario artwork', () => {
   it('maps each playable scenario to its own intro video and existing card fallback', () => {
     expect(getScenarioArtwork('shop-01')).toMatchObject({
-      src: '/images/shop-checkout.png',
-      videoSrc: '/videos/storecheckput.mp4'
+      src: `${import.meta.env.BASE_URL}images/shop-checkout.png`,
+      videoSrc: `${import.meta.env.BASE_URL}videos/storecheckput.mp4`
     });
     expect(getScenarioArtwork('grab-01')).toMatchObject({
-      src: '/images/grab-ordering.png',
-      videoSrc: '/videos/graborder.mp4'
+      src: `${import.meta.env.BASE_URL}images/grab-ordering.png`,
+      videoSrc: `${import.meta.env.BASE_URL}videos/graborder.mp4`
     });
     expect(getScenarioArtwork('mamak-01')).toMatchObject({
-      src: '/images/mamak-waiter.png',
-      videoSrc: '/videos/tehtarekorder.mp4'
+      src: `${import.meta.env.BASE_URL}images/mamak-waiter.png`,
+      videoSrc: `${import.meta.env.BASE_URL}videos/tehtarekorder.mp4`
     });
   });
 
@@ -28,8 +28,8 @@ describe('scenario artwork', () => {
   it('ships every mapped video and static fallback as a valid local asset', () => {
     for (const scenarioId of playableScenarioIds) {
       const artwork = getScenarioArtwork(scenarioId);
-      const videoPath = resolve(process.cwd(), 'public', artwork.videoSrc!.slice(1));
-      const imagePath = resolve(process.cwd(), 'public', artwork.src.slice(1));
+      const videoPath = resolve(process.cwd(), 'public', artwork.videoSrc!.replace(import.meta.env.BASE_URL, ''));
+      const imagePath = resolve(process.cwd(), 'public', artwork.src.replace(import.meta.env.BASE_URL, ''));
       const video = readFileSync(videoPath);
 
       expect(video.byteLength, `${scenarioId} video should not be empty`).toBeGreaterThan(8);

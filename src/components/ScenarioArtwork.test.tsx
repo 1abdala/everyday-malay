@@ -99,7 +99,7 @@ describe('ScenarioArtwork video fallbacks', () => {
     await renderArtwork();
 
     expect(container.querySelector('.scene-hero-art')).not.toBeNull();
-    expect(container.querySelector('img')?.getAttribute('src')).toBe('/images/shop-checkout.png');
+    expect(container.querySelector('img')?.getAttribute('src')).toBe(`${import.meta.env.BASE_URL}images/shop-checkout.png`);
     expect(container.querySelector('video')).toBeNull();
     expect(mediaPlay).not.toHaveBeenCalled();
   });
@@ -111,7 +111,7 @@ describe('ScenarioArtwork video fallbacks', () => {
 
     const video = container.querySelector('video');
     expect(video).not.toBeNull();
-    expect(video?.getAttribute('src')).toBe('/videos/storecheckput.mp4');
+    expect(video?.getAttribute('src')).toBe(`${import.meta.env.BASE_URL}videos/storecheckput.mp4`);
     expect(video?.muted).toBe(true);
     expect(video?.loop).toBe(true);
     expect(mediaPlay).toHaveBeenCalledTimes(1);
@@ -121,7 +121,7 @@ describe('ScenarioArtwork video fallbacks', () => {
     });
 
     expect(container.querySelector('video')).toBeNull();
-    expect(container.querySelector('img')?.getAttribute('src')).toBe('/images/shop-checkout.png');
+    expect(container.querySelector('img')?.getAttribute('src')).toBe(`${import.meta.env.BASE_URL}images/shop-checkout.png`);
     expect(container.querySelector('.scene-hero-art')?.className).toBe('scene-hero-art scene-hero-art-shop');
   });
 
@@ -148,7 +148,7 @@ describe('ScenarioArtwork video fallbacks', () => {
       video!.dispatchEvent(new Event('error'));
     });
 
-    expect(container.querySelector('.scene-hero-art img')?.getAttribute('src')).toBe('/images/shop-checkout.png');
+    expect(container.querySelector('.scene-hero-art img')?.getAttribute('src')).toBe(`${import.meta.env.BASE_URL}images/shop-checkout.png`);
     expect(container.querySelector('.card-flow-footer .lesson-continue')?.textContent).toContain('Start Dialogue');
 
     await act(async () => {
