@@ -67,6 +67,7 @@ export type Card = {
   dialogue: DialogueLine[];
   chips: Chip[];
   phrases: Phrase[];
+  referencePhrases?: Phrase[];
   task: {
     goal: string;
     turns: TaskTurn[];
@@ -83,6 +84,8 @@ export type CardProgress = {
     firstTry: number;
     withHint: number;
     assisted: number;
+    attempts?: number;
+    phrasesToRevisit?: string[];
   };
   attempts: number;
   updatedAt: number;

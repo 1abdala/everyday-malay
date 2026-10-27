@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import type { Card as CardType, ProgressMap, UserSettings } from '../types';
 import { precacheCardAudio, stopAudio } from '../lib/audio';
-import { saveCardProgress } from '../lib/storage';
+import { completeScenario, loadRewardProgress, saveCardProgress } from '../lib/storage';
 import { track } from '../lib/track';
 import { StepDots } from '../components/StepDots';
 import { DialogueLine } from '../components/DialogueLine';
@@ -9,30 +9,32 @@ import { ChipRow } from '../components/ChipRow';
 import { PhraseList } from '../components/PhraseList';
 import { TaskTest, type TaskSummaryResult } from '../components/TaskTest';
 import { ResultStep } from '../components/ResultStep';
+import { ScenarioArtwork } from '../components/ScenarioArtwork';
+import { getAdjacentLessonStep, LESSON_STEP_COUNT, normalizeLessonStep } from '../lib/lessonNavigation';
 
 type CardScreenProps = {
   card: CardType;
-  allCards: CardType[];
   progress: ProgressMap;
   settings: UserSettings;
   onBackToDeck: () => void;
-  onNavigateToCard: (cardId: string) => void;
+  onContinuePath: () => void;
+  returnToBrowseLabel: string;
   onProgressUpdated: () => void;
 };
 
-const TOTAL_STEPS = 6;
+const STEP_NAMES = ['Scene', 'Listen', 'Say it like locals', 'Key phrases', 'Task test', 'Results'];
 
 export const CardScreen: React.FC<CardScreenProps> = ({
   card,
-  allCards,
   progress,
   settings,
   onBackToDeck,
-  onNavigateToCard,
+  onContinuePath,
+  returnToBrowseLabel,
   onProgressUpdated
 }) => {
   const existingProg = progress[card.id];
-  const initialStep = existingProg?.lastStepIndex && existingProg.lastStepIndex < TOTAL_STEPS ? existingProg.lastStepIndex : 0;
+  const initialStep = normalizeLessonStep(existingProg?.lastStepIndex);
 
   const [currentStep, setCurrentStep] = useState(initialStep);
   const [showEnglish, setShowEnglish] = useState(settings.showEnglishDefault);
@@ -43,13 +45,19 @@ export const CardScreen: React.FC<CardScreenProps> = ({
           firstTry: existingProg.bestTask.firstTry,
           withHint: existingProg.bestTask.withHint,
           assisted: existingProg.bestTask.assisted,
-          attempts: existingProg.attempts,
-          phrasesToRevisit: []
+          attempts: existingProg.bestTask.attempts ?? 0,
+          phrasesToRevisit: existingProg.bestTask.phrasesToRevisit ?? []
         }
       : null
   );
 
-  const scrollerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const currentStepRef = useRef(initialStep);
+  const transitionLockRef = useRef(false);
+  const completionGuardRef = useRef(false);
+  const [taskRun, setTaskRun] = useState(0);
+  const [xpAwarded, setXpAwarded] = useState(0);
+  const [totalXp, setTotalXp] = useState(() => loadRewardProgress().totalXp);
 
   // Pre-cache audio & track card opened
   useEffect(() => {
@@ -63,84 +71,61 @@ export const CardScreen: React.FC<CardScreenProps> = ({
     };
   }, [card.id]);
 
-  // Scroll to step when currentStep changes
-  const scrollToStep = (stepIndex: number) => {
-    if (scrollerRef.current) {
-      const targetScroll = stepIndex * scrollerRef.current.clientWidth;
-      scrollerRef.current.scrollTo({
-        left: targetScroll,
-        behavior: 'smooth'
-      });
+  const moveToStep = (stepIndex: number, persist = true, force = false) => {
+    if ((!force && transitionLockRef.current) || stepIndex === currentStepRef.current) return;
+    if (!force) {
+      transitionLockRef.current = true;
+      window.setTimeout(() => { transitionLockRef.current = false; }, 220);
     }
+    currentStepRef.current = stepIndex;
     setCurrentStep(stepIndex);
+    if (contentRef.current) contentRef.current.scrollTop = 0;
     track('step_reached', { cardId: card.id, step: stepIndex });
-    saveCardProgress(card.id, { lastStepIndex: stepIndex });
-    onProgressUpdated();
-  };
-
-  // Listen to manual swipe / scroll events on container
-  const handleScroll = () => {
-    if (!scrollerRef.current) return;
-    const scrollLeft = scrollerRef.current.scrollLeft;
-    const width = scrollerRef.current.clientWidth;
-    if (width > 0) {
-      const newStep = Math.round(scrollLeft / width);
-      if (newStep !== currentStep && newStep >= 0 && newStep < TOTAL_STEPS) {
-        setCurrentStep(newStep);
-        track('step_reached', { cardId: card.id, step: newStep });
-        saveCardProgress(card.id, { lastStepIndex: newStep });
-        onProgressUpdated();
-      }
+    if (persist) {
+      saveCardProgress(card.id, { lastStepIndex: stepIndex });
+      onProgressUpdated();
     }
   };
 
-  // Keyboard left/right arrow shortcuts
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      // Don't intercept arrow keys if typing in an input
-      if (
-        document.activeElement?.tagName === 'INPUT' ||
-        document.activeElement?.tagName === 'TEXTAREA'
-      ) {
-        return;
-      }
-
-      if (e.key === 'ArrowRight') {
-        if (currentStep < TOTAL_STEPS - 1) {
-          scrollToStep(currentStep + 1);
-        }
-      } else if (e.key === 'ArrowLeft') {
-        if (currentStep > 0) {
-          scrollToStep(currentStep - 1);
-        }
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentStep]);
+  const moveAdjacent = (direction: -1 | 1) => {
+    const nextStep = getAdjacentLessonStep(currentStepRef.current, direction);
+    if (nextStep !== null) moveToStep(nextStep);
+  };
 
   const handleTaskComplete = (summary: TaskSummaryResult) => {
+    if (completionGuardRef.current) return;
+    completionGuardRef.current = true;
     setTaskResult(summary);
-    saveCardProgress(card.id, {
-      finished: true,
+    const completion = completeScenario(card.id, {
+      lastStepIndex: 5,
       attempts: (existingProg?.attempts || 0) + 1,
       bestTask: {
         turns: summary.turns,
         firstTry: summary.firstTry,
         withHint: summary.withHint,
-        assisted: summary.assisted
+        assisted: summary.assisted,
+        attempts: summary.attempts,
+        phrasesToRevisit: summary.phrasesToRevisit
       }
     });
+    setXpAwarded(completion.xpAwarded);
+    setTotalXp(completion.totalXp);
     track('card_finished', { cardId: card.id });
     onProgressUpdated();
-    // Advance to Result step (index 5)
-    scrollToStep(5);
+    // The task completion write already persisted Results as the current step.
+    moveToStep(5, false, true);
   };
 
-  // Check if next card exists
-  const currentIndex = allCards.findIndex((c) => c.id === card.id);
-  const nextCard = currentIndex >= 0 && currentIndex < allCards.length - 1 ? allCards[currentIndex + 1] : null;
+  const retryTask = () => {
+    setTaskResult(null);
+    setXpAwarded(0);
+    setTotalXp(loadRewardProgress().totalXp);
+    setTaskRun((run) => run + 1);
+    completionGuardRef.current = false;
+    moveToStep(4, true, true);
+  };
+
+  const continueLabels = ['Start Dialogue →', 'Say It Like Locals →', 'Learn Key Phrases →', 'Begin Task Test →'];
 
   return (
     <div className="card-flow-container">
@@ -150,30 +135,20 @@ export const CardScreen: React.FC<CardScreenProps> = ({
           type="button"
           className="btn-ghost"
           onClick={onBackToDeck}
-          aria-label="Back to deck"
+          aria-label={`Return to ${returnToBrowseLabel.replace('Back to ', '')}`}
         >
-          ← Deck
+          ← {returnToBrowseLabel.replace('Back to ', '')}
         </button>
 
-        <StepDots
-          totalSteps={TOTAL_STEPS}
-          currentStep={currentStep}
-          onSelectStep={scrollToStep}
-        />
-
-        <span style={{ fontSize: '1.2rem', lineHeight: 1 }}>{card.icon}</span>
+        <StepDots totalSteps={LESSON_STEP_COUNT} currentStep={currentStep} />
+        <span className="lesson-step-name">{STEP_NAMES[currentStep]}</span>
+        <span className="lesson-card-icon" aria-hidden="true">{card.icon}</span>
       </header>
 
-      {/* Swipeable Steps Scroller */}
-      <div
-        className="steps-scroller"
-        ref={scrollerRef}
-        onScroll={handleScroll}
-        tabIndex={0}
-        aria-label="Swipeable scenario steps"
-      >
+      {/* One vertical lesson step at a time; navigation controls own step changes. */}
+      <main className="steps-scroller" ref={contentRef} aria-label="Lesson content">
         {/* Step 0: Scene */}
-        <section className="step-slide" aria-label="Step 1 of 6: Scene">
+        <section className="step-slide" hidden={currentStep !== 0} aria-label="Step 1 of 6: Scene">
           {card.review.status !== 'approved' && (
             <div className="draft-banner">
               <span>⚠️</span>
@@ -187,25 +162,17 @@ export const CardScreen: React.FC<CardScreenProps> = ({
           </div>
 
           <div className="scene-card-hero">
-            <div className="scene-hero-icon">{card.icon}</div>
+            <ScenarioArtwork card={card} variant="intro" isActive={currentStep === 0} />
             <div className="scene-hero-text">"{card.scene}"</div>
             <div style={{ fontSize: '0.88rem', color: 'var(--color-text-muted)' }}>
               Variety: <strong>{card.variety}</strong> · ~{card.minutes} mins
             </div>
           </div>
 
-          <button
-            type="button"
-            className="btn-primary"
-            style={{ width: '100%', marginTop: 'auto' }}
-            onClick={() => scrollToStep(1)}
-          >
-            Start Dialogue →
-          </button>
         </section>
 
         {/* Step 1: Listen */}
-        <section className="step-slide" aria-label="Step 2 of 6: Listen">
+        <section className="step-slide" hidden={currentStep !== 1} aria-label="Step 2 of 6: Listen">
           <div className="step-header">
             <span className="step-badge">Step 2 of 6</span>
             <h2 className="step-title">Listen to the Dialogue</h2>
@@ -232,18 +199,10 @@ export const CardScreen: React.FC<CardScreenProps> = ({
             ))}
           </div>
 
-          <button
-            type="button"
-            className="btn-primary"
-            style={{ width: '100%', marginTop: '16px' }}
-            onClick={() => scrollToStep(2)}
-          >
-            Say It Like Locals →
-          </button>
         </section>
 
         {/* Step 2: Chips */}
-        <section className="step-slide" aria-label="Step 3 of 6: Say it like locals">
+        <section className="step-slide" hidden={currentStep !== 2} aria-label="Step 3 of 6: Say it like locals">
           <div className="step-header">
             <span className="step-badge">Step 3 of 6</span>
             <h2 className="step-title">Say It Like Locals</h2>
@@ -254,18 +213,10 @@ export const CardScreen: React.FC<CardScreenProps> = ({
 
           <ChipRow chips={card.chips} />
 
-          <button
-            type="button"
-            className="btn-primary"
-            style={{ width: '100%', marginTop: 'auto' }}
-            onClick={() => scrollToStep(3)}
-          >
-            Learn Key Phrases →
-          </button>
         </section>
 
         {/* Step 3: Key Phrases */}
-        <section className="step-slide" aria-label="Step 4 of 6: Key phrases">
+        <section className="step-slide" hidden={currentStep !== 3} aria-label="Step 4 of 6: Key phrases">
           <div className="step-header">
             <span className="step-badge">Step 4 of 6</span>
             <h2 className="step-title">Key Phrases for the Task</h2>
@@ -276,32 +227,25 @@ export const CardScreen: React.FC<CardScreenProps> = ({
 
           <PhraseList phrases={card.phrases} />
 
-          <button
-            type="button"
-            className="btn-primary"
-            style={{ width: '100%', marginTop: '16px' }}
-            onClick={() => scrollToStep(4)}
-          >
-            Begin Task Test →
-          </button>
         </section>
 
         {/* Step 4: Task Test */}
-        <section className="step-slide" aria-label="Step 5 of 6: Task test">
+        <section className="step-slide" hidden={currentStep !== 4} aria-label="Step 5 of 6: Task test">
           <div className="step-header">
             <span className="step-badge">Step 5 of 6</span>
             <h2 className="step-title">Task Test: Role-play</h2>
           </div>
 
           <TaskTest
-            key={card.id}
+            key={`${card.id}-${taskRun}`}
             card={card}
             onComplete={handleTaskComplete}
+            isActive={currentStep === 4}
           />
         </section>
 
         {/* Step 5: Result */}
-        <section className="step-slide" aria-label="Step 6 of 6: Result">
+        <section className="step-slide" hidden={currentStep !== 5} aria-label="Step 6 of 6: Result">
           <div className="step-header">
             <span className="step-badge">Step 6 of 6</span>
             <h2 className="step-title">Summary</h2>
@@ -309,44 +253,33 @@ export const CardScreen: React.FC<CardScreenProps> = ({
 
           <ResultStep
             result={taskResult}
-            onRetryTask={() => scrollToStep(4)}
-            onNextCard={() => {
-              if (nextCard) {
-                onNavigateToCard(nextCard.id);
-              }
-            }}
+            scenarioTitle={card.title}
+            taskGoal={card.task.goal}
+            xpAwarded={xpAwarded}
+            totalXp={totalXp}
+            onRetryTask={retryTask}
+            onContinuePath={onContinuePath}
             onBackToDeck={onBackToDeck}
-            hasNextCard={Boolean(nextCard)}
+            returnToBrowseLabel={returnToBrowseLabel}
           />
         </section>
-      </div>
+      </main>
 
-      {/* Bottom Sticky Navigation */}
-      <footer className="card-flow-footer">
+      {currentStep < 5 && <footer className="card-flow-footer">
         <button
           type="button"
           className="btn-secondary"
           disabled={currentStep === 0}
-          onClick={() => scrollToStep(currentStep - 1)}
-          style={{ opacity: currentStep === 0 ? 0.4 : 1 }}
+          onClick={() => moveAdjacent(-1)}
+          aria-label="Go back one lesson step"
         >
           ← Back
         </button>
 
-        <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-text-muted)' }}>
-          {currentStep + 1} / {TOTAL_STEPS}
-        </span>
-
-        <button
-          type="button"
-          className="btn-secondary"
-          disabled={currentStep === TOTAL_STEPS - 1}
-          onClick={() => scrollToStep(currentStep + 1)}
-          style={{ opacity: currentStep === TOTAL_STEPS - 1 ? 0.4 : 1 }}
-        >
-          Next →
-        </button>
-      </footer>
+        {currentStep < 4 ? <button type="button" className="btn-primary lesson-continue" onClick={() => moveAdjacent(1)}>
+          {continueLabels[currentStep]}
+        </button> : <span className="lesson-footer-note">Complete the role-play above to see your results</span>}
+      </footer>}
     </div>
   );
 };

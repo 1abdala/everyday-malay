@@ -26,10 +26,11 @@ Each card in `cards/<id>.json` must adhere to the schema:
   - `spoken`: The colloquial/spoken phrase.
   - `formal`: The textbook/formal Malay equivalent.
   - `note`: Short usage note explaining when locals say it.
-- **`phrases`** (array of 5 key phrases):
+- **`phrases`** (ordered array of key phrases): Order entries in the sequence intended for teaching; the learner-facing list can contain more or fewer than five items.
   - `ms`: The key phrase.
   - `en`: Translation.
   - `audio`: Optional `normal` and `slow` audio paths.
+- **`referencePhrases`** (optional array): Auxiliary reference items outside the core Key Phrases step and task evaluation. Uses the same fields as `phrases`; the current learner UI does not display these items.
 - **`task`** (object):
   - `goal`: Clear objective for the learner (e.g. "Order a drink and food, and ask for the bill.").
   - `turns`: Array of turns. Each turn is either:

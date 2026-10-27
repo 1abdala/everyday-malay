@@ -3,6 +3,8 @@ import { matchTurn } from './matcher';
 import { normalize } from './normalize';
 import type { TurnAnswer } from '../types';
 import mamakCard from '../../content/cards/mamak-01.json';
+import shopCard from '../../content/cards/shop-01.json';
+import grabCard from '../../content/cards/grab-01.json';
 
 describe('Matcher Core Rules', () => {
   it('normalizes case and punctuation properly', () => {
@@ -184,6 +186,9 @@ describe('Mamak-01 Task Turns Acceptance & Rejection Tests', () => {
 
     it('passes on at least 3 accepted variants', () => {
       expect(matchTurn('itu je', turn).pass).toBe(true);
+      expect(matchTurn('tu je', turn).pass).toBe(true);
+      expect(matchTurn('itu saja', turn).pass).toBe(true);
+      expect(matchTurn('itu sahaja', turn).pass).toBe(true);
       expect(matchTurn('ya itu je', turn).pass).toBe(true);
       expect(matchTurn('dah cukup', turn).pass).toBe(true);
       expect(matchTurn('cukup', turn).pass).toBe(true);
@@ -204,13 +209,82 @@ describe('Mamak-01 Task Turns Acceptance & Rejection Tests', () => {
       expect(matchTurn('bang kira', turn).pass).toBe(true);
       expect(matchTurn('kira bang', turn).pass).toBe(true);
       expect(matchTurn('bang nak kira', turn).pass).toBe(true);
-      expect(matchTurn('kira', turn).pass).toBe(true);
+      expect(matchTurn('ane kira', turn).pass).toBe(true);
+      expect(matchTurn('minta bil', turn).pass).toBe(true);
+      expect(matchTurn('boleh minta bil', turn).pass).toBe(true);
+      expect(matchTurn('Bang, tolong kira.', turn).pass).toBe(true);
+      expect(matchTurn('Tolong kira ni.', turn).pass).toBe(true);
+      expect(matchTurn('Nak bil.', turn).pass).toBe(true);
+      expect(matchTurn('Bang minta bil.', turn).pass).toBe(true);
     });
 
     it('fails on 3 wrong answers', () => {
       expect(matchTurn('terima kasih bro', turn).pass).toBe(false);
       expect(matchTurn('nak order lagi', turn).pass).toBe(false);
       expect(matchTurn('buka aircond', turn).pass).toBe(false);
+      expect(matchTurn('kira', turn).pass).toBe(false);
+      expect(matchTurn('bil', turn).pass).toBe(false);
+      expect(matchTurn('Semua berapa?', turn).pass).toBe(false);
+      expect(matchTurn('bang minta', turn).pass).toBe(false);
     });
+  });
+});
+
+describe('Shop-01 bag and receipt declines', () => {
+  const bagTurn = shopCard.task.turns[1];
+  const receiptTurn = shopCard.task.turns[3];
+
+  it('accepts the reviewed bag-decline variants', () => {
+    expect(matchTurn('tak payah', bagTurn).pass).toBe(true);
+    expect(matchTurn('tak apa', bagTurn).pass).toBe(true);
+    expect(matchTurn('takpe', bagTurn).pass).toBe(true);
+    expect(matchTurn('takpe terima kasih', bagTurn).pass).toBe(true);
+    expect(matchTurn('tak apa terima kasih', bagTurn).pass).toBe(true);
+    expect(matchTurn('Tak nak plastik.', bagTurn).pass).toBe(true);
+    expect(matchTurn('nak beg plastik', bagTurn).pass).toBe(false);
+    expect(matchTurn('Tak nak resit.', bagTurn).pass).toBe(false);
+  });
+
+  it('accepts concise reviewed receipt declines', () => {
+    expect(matchTurn('tak payah', receiptTurn).pass).toBe(true);
+    expect(matchTurn('tak apa', receiptTurn).pass).toBe(true);
+    expect(matchTurn('takpe', receiptTurn).pass).toBe(true);
+    expect(matchTurn('takpe terima kasih', receiptTurn).pass).toBe(true);
+    expect(matchTurn('Tak nak resit.', receiptTurn).pass).toBe(true);
+    expect(matchTurn('nak resit', receiptTurn).pass).toBe(false);
+    expect(matchTurn('Tak nak plastik.', receiptTurn).pass).toBe(false);
+  });
+});
+
+describe('Grab-01 route and stop intent', () => {
+  const routeTurn = grabCard.task.turns[2];
+  const stopTurn = grabCard.task.turns[3];
+
+  it('accepts a GPS route response and rejects unrelated or incomplete responses', () => {
+    expect(matchTurn('Ikut GPS je.', routeTurn).pass).toBe(true);
+    expect(matchTurn('Ikut jalan ni', routeTurn).pass).toBe(false);
+    expect(matchTurn('GPS rosak', routeTurn).pass).toBe(false);
+  });
+
+  it('requires both a stop request and a here-location reference', () => {
+    expect(matchTurn('Berhenti kat sini', stopTurn).pass).toBe(true);
+    expect(matchTurn('Berhenti sini', stopTurn).pass).toBe(true);
+    expect(matchTurn('Stop kat sini', stopTurn).pass).toBe(true);
+    expect(matchTurn('Turun sini.', stopTurn).pass).toBe(true);
+    expect(matchTurn('depan', stopTurn).pass).toBe(false);
+    expect(matchTurn('Rumah saya kat depan', stopTurn).pass).toBe(false);
+    expect(matchTurn('Depan sikit', stopTurn).pass).toBe(false);
+  });
+
+  it('keeps auxiliary reference phrases out of evaluated task answers', () => {
+    const allTurns = [
+      ...shopCard.task.turns,
+      ...mamakCard.task.turns,
+      ...grabCard.task.turns
+    ];
+    for (const turn of allTurns) {
+      expect(matchTurn('Semua berapa?', turn).pass).toBe(false);
+      expect(matchTurn('Lalu mana ya?', turn).pass).toBe(false);
+    }
   });
 });

@@ -1,7 +1,7 @@
 {
   "id": "shop-01",
   "title": "At the shop counter",
-  "scene": "You're at a mini-market with a bottle of water.",
+  "scene": "You're at a mini-market and want to buy bottled water.",
   "icon": "🏪",
   "minutes": 5,
   "variety": "KL spoken Malay",
@@ -52,8 +52,8 @@
     {
       "id": "line-5",
       "who": "you",
-      "ms": "Tak payah.",
-      "en": "No need.",
+      "ms": "Tak nak plastik.",
+      "en": "I don't want a plastic bag.",
       "audio": {
         "normal": "/audio/shop-01/line-5-normal.mp3",
         "slow": "/audio/shop-01/line-5-slow.mp3"
@@ -102,8 +102,8 @@
     {
       "id": "line-10",
       "who": "you",
-      "ms": "Tak nak, terima kasih.",
-      "en": "No thanks.",
+      "ms": "Tak nak resit.",
+      "en": "I don't want a receipt.",
       "audio": {
         "normal": "/audio/shop-01/line-10-normal.mp3",
         "slow": "/audio/shop-01/line-10-slow.mp3"
@@ -130,49 +130,32 @@
       "spoken": "guna",
       "formal": "menggunakan",
       "note": "spoken drops me-"
-    },
-    {
-      "spoken": "berapa ni?",
-      "formal": "berapakah harganya?",
-      "note": "asking the price"
     }
   ],
   "phrases": [
     {
-      "ms": "Ada ___?",
-      "en": "Do you have ___?",
-      "audio": {
-        "normal": "/audio/shop-01/phrase-1-normal.mp3",
-        "slow": "/audio/shop-01/phrase-1-slow.mp3"
-      }
+      "ms": "Ada plastik tak?",
+      "en": "Do you have a plastic bag?"
     },
     {
-      "ms": "Berapa ni?",
-      "en": "How much is this?",
-      "audio": {
-        "normal": "/audio/shop-01/phrase-2-normal.mp3",
-        "slow": "/audio/shop-01/phrase-2-slow.mp3"
-      }
+      "ms": "Tak nak plastik.",
+      "en": "I don't want a plastic bag."
     },
     {
-      "ms": "Tak payah.",
-      "en": "No need.",
-      "audio": {
-        "normal": "/audio/shop-01/phrase-3-normal.mp3",
-        "slow": "/audio/shop-01/phrase-3-slow.mp3"
-      }
-    },
-    {
-      "ms": "Boleh bayar guna kad / QR?",
-      "en": "Can I pay by card / QR?",
+      "ms": "Boleh bayar guna kad?",
+      "en": "Can I pay by card?",
       "audio": {
         "normal": "/audio/shop-01/phrase-4-normal.mp3",
         "slow": "/audio/shop-01/phrase-4-slow.mp3"
       }
     },
     {
-      "ms": "Tak nak, terima kasih.",
-      "en": "No thanks.",
+      "ms": "Nak resit.",
+      "en": "I'd like a receipt."
+    },
+    {
+      "ms": "Tak nak resit.",
+      "en": "I don't want a receipt.",
       "audio": {
         "normal": "/audio/shop-01/phrase-5-normal.mp3",
         "slow": "/audio/shop-01/phrase-5-slow.mp3"
@@ -207,11 +190,14 @@
         "audio": "/audio/shop-01/line-4-normal.mp3",
         "accept": [
           "tak payah",
-          "tak nak",
+          "tak apa",
+          "takpe",
+          "takpe terima kasih",
           "tak payah terima kasih",
-          "tak apa"
+          "tak apa terima kasih",
+          "tak nak plastik"
         ],
-        "model": "Tak payah.",
+        "model": "Tak nak plastik.",
         "hint": "Say 'no need'."
       },
       {
@@ -240,9 +226,13 @@
           "tak nak",
           "tak nak terima kasih",
           "tak payah",
-          "tak payah terima kasih"
+          "tak payah terima kasih",
+          "tak apa",
+          "takpe",
+          "takpe terima kasih",
+          "tak nak resit"
         ],
-        "model": "Tak nak, terima kasih.",
+        "model": "Tak nak resit.",
         "hint": "Say no thanks."
       }
     ]

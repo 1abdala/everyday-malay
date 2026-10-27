@@ -4,6 +4,22 @@ const PROGRESS_KEY = 'em.progress.v1';
 const FAILED_KEY = 'em.failed.v1';
 const EVENTS_KEY = 'em.events.v1';
 const SETTINGS_KEY = 'em.settings.v1';
+const REWARD_META_KEY = '__em_rewards_v1';
+
+export const SCENARIO_COMPLETION_XP = 10;
+
+type RewardLedger = {
+  version: 1;
+  totalXp: number;
+  completionRewardIds: string[];
+};
+
+type ProgressSnapshot = {
+  progress: ProgressMap;
+  rewards: RewardLedger | null;
+};
+
+const EMPTY_REWARD_LEDGER: RewardLedger = { version: 1, totalXp: 0, completionRewardIds: [] };
 
 // In-memory fallback if localStorage is disabled or throws
 const memoryStore: Record<string, string> = {};
@@ -44,18 +60,55 @@ function safeRemoveItem(key: string): void {
 
 /* --- Progress --- */
 
-export function loadProgress(): ProgressMap {
+function readProgressSnapshot(): ProgressSnapshot {
   try {
     const raw = safeGetItem(PROGRESS_KEY);
-    if (!raw) return {};
-    return JSON.parse(raw);
+    if (!raw) return { progress: {}, rewards: null };
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return { progress: {}, rewards: null };
+
+    const progress: ProgressMap = {};
+    Object.entries(parsed as Record<string, unknown>).forEach(([id, value]) => {
+      if (id !== REWARD_META_KEY && value && typeof value === 'object' && !Array.isArray(value)) {
+        progress[id] = value as CardProgress;
+      }
+    });
+
+    const rawRewards = (parsed as Record<string, unknown>)[REWARD_META_KEY] as Partial<RewardLedger> | undefined;
+    const rewards = rawRewards && rawRewards.version === 1
+      ? {
+          version: 1 as const,
+          totalXp: Number.isFinite(rawRewards.totalXp) ? Math.max(0, Number(rawRewards.totalXp)) : 0,
+          completionRewardIds: Array.isArray(rawRewards.completionRewardIds)
+            ? rawRewards.completionRewardIds.filter((id): id is string => typeof id === 'string')
+            : []
+        }
+      : null;
+
+    return { progress, rewards };
   } catch {
-    return {};
+    return { progress: {}, rewards: null };
   }
 }
 
+function writeProgressSnapshot(progress: ProgressMap, rewards: RewardLedger | null): void {
+  const stored: Record<string, unknown> = { ...progress };
+  if (rewards) stored[REWARD_META_KEY] = rewards;
+  safeSetItem(PROGRESS_KEY, JSON.stringify(stored));
+}
+
+export function loadProgress(): ProgressMap {
+  return readProgressSnapshot().progress;
+}
+
+export function loadRewardProgress(): Pick<RewardLedger, 'totalXp' | 'completionRewardIds'> {
+  const rewards = readProgressSnapshot().rewards ?? EMPTY_REWARD_LEDGER;
+  return { totalXp: rewards.totalXp, completionRewardIds: [...rewards.completionRewardIds] };
+}
+
 export function saveCardProgress(cardId: string, update: Partial<CardProgress>): CardProgress {
-  const current = loadProgress();
+  const snapshot = readProgressSnapshot();
+  const current = snapshot.progress;
   const existing = current[cardId] || {
     started: false,
     finished: false,
@@ -71,13 +124,57 @@ export function saveCardProgress(cardId: string, update: Partial<CardProgress>):
   };
 
   current[cardId] = updated;
-  try {
-    safeSetItem(PROGRESS_KEY, JSON.stringify(current));
-  } catch {
-    // ignore
-  }
+  writeProgressSnapshot(current, snapshot.rewards);
 
   return updated;
+}
+
+export type ScenarioCompletionCommit = {
+  progress: CardProgress;
+  xpAwarded: number;
+  totalXp: number;
+  firstCompletion: boolean;
+};
+
+/** Complete a role-play and claim its first-completion reward in one localStorage write. */
+export function completeScenario(
+  cardId: string,
+  update: Partial<CardProgress>,
+  rewardXp: number = SCENARIO_COMPLETION_XP
+): ScenarioCompletionCommit {
+  const snapshot = readProgressSnapshot();
+  const existing = snapshot.progress[cardId] || {
+    started: false,
+    finished: false,
+    lastStepIndex: 0,
+    attempts: 0,
+    updatedAt: Date.now()
+  };
+  const rewards = snapshot.rewards ?? { ...EMPTY_REWARD_LEDGER, completionRewardIds: [] };
+  const alreadyClaimed = rewards.completionRewardIds.includes(cardId);
+  const firstCompletion = !existing.finished;
+  const xpAwarded = firstCompletion && !alreadyClaimed ? Math.max(0, Math.floor(rewardXp)) : 0;
+  const updated: CardProgress = {
+    ...existing,
+    ...update,
+    started: true,
+    finished: true,
+    updatedAt: Date.now()
+  };
+
+  snapshot.progress[cardId] = updated;
+  const nextRewards: RewardLedger = {
+    version: 1,
+    totalXp: rewards.totalXp + xpAwarded,
+    completionRewardIds: xpAwarded > 0 && !alreadyClaimed
+      ? [...rewards.completionRewardIds, cardId]
+      : rewards.completionRewardIds
+  };
+
+  // Completion, result data, XP balance, and claim ID share the same storage transaction.
+  writeProgressSnapshot(snapshot.progress, nextRewards);
+
+  return { progress: updated, xpAwarded, totalXp: nextRewards.totalXp, firstCompletion };
 }
 
 /* --- Failed Answers Log (cap 500) --- */

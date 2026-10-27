@@ -4,7 +4,7 @@
   "scene": "You sit down at a mamak stall. A waiter walks over.",
   "icon": "☕",
   "minutes": 6,
-  "variety": "KL spoken Malay (to be confirmed)",
+  "variety": "Klang Valley / West Coast Colloquial Spoken Malay",
   "review": {
     "status": "draft"
   },
@@ -72,7 +72,7 @@
     {
       "id": "line-7",
       "who": "npc",
-      "ms": "Okey. Itu je?",
+      "ms": "Okey. Itu saja?",
       "en": "Okay. That's all?",
       "audio": {
         "normal": "/audio/mamak-01/line-7-normal.mp3",
@@ -82,7 +82,7 @@
     {
       "id": "line-8",
       "who": "you",
-      "ms": "Itu je.",
+      "ms": "Itu saja.",
       "en": "That's all.",
       "audio": {
         "normal": "/audio/mamak-01/line-8-normal.mp3",
@@ -117,14 +117,14 @@
       "note": "daily speech vs. writing and speeches"
     },
     {
-      "spoken": "itu je",
-      "formal": "itu sahaja",
-      "note": "spoken vs. written"
+      "spoken": "tu je",
+      "formal": "itu saja",
+      "note": "Teach the full form ‘Itu saja’ first, followed by the colloquial shortened form ‘Tu je’."
     },
     {
       "spoken": "sikit",
       "formal": "sedikit",
-      "note": "spoken"
+      "note": "In this order, ‘kuah dhal sikit’ requests a small amount of dhal gravy with the roti canai. ‘Tambah dhal sikit’ is another natural alternative."
     },
     {
       "spoken": "ke",
@@ -138,8 +138,8 @@
     },
     {
       "spoken": "kira",
-      "formal": "bayar, minta bil",
-      "note": "asking for the bill"
+      "formal": "minta bil (contextual)",
+      "note": "In this mamak exchange, ‘kira’ asks the staff to total the bill; it is not a universal synonym for bayar or minta bil."
     }
   ],
   "phrases": [
@@ -168,8 +168,20 @@
       }
     },
     {
-      "ms": "Itu je.",
-      "en": "That's all.",
+      "ms": "Kuah dhal sikit.",
+      "en": "A little dhal gravy."
+    },
+    {
+      "ms": "Tambah dhal sikit.",
+      "en": "Add a little dhal gravy."
+    },
+    {
+      "ms": "Itu saja.",
+      "en": "That's all."
+    },
+    {
+      "ms": "Tu je.",
+      "en": "That's all. Colloquial shortened form; taught after ‘Itu saja’.",
       "audio": {
         "normal": "/audio/mamak-01/phrase-4-normal.mp3",
         "slow": "/audio/mamak-01/phrase-4-slow.mp3"
@@ -184,8 +196,26 @@
       }
     }
   ],
+  "referencePhrases": [
+    {
+      "ms": "Bang, tolong kira.",
+      "en": "Please tally the bill. A contextual request; usage may vary by situation."
+    },
+    {
+      "ms": "Tolong kira ni.",
+      "en": "Please total this. The bill is understood from context."
+    },
+    {
+      "ms": "Nak bil.",
+      "en": "I'd like the bill. A direct bill request; usage is not identical to ‘kira’."
+    },
+    {
+      "ms": "Semua berapa?",
+      "en": "How much is everything? Asks for the total; it is not the same as requesting the bill."
+    }
+  ],
   "task": {
-    "goal": "Order a drink and food, and ask for the bill.",
+    "goal": "Order a drink, choose dine-in or takeaway, order food, confirm that's all, and ask for the bill after eating.",
     "turns": [
       {
         "type": "npc",
@@ -204,7 +234,7 @@
           ["tarik"]
         ],
         "model": "Teh tarik satu.",
-        "hint": "Say the drink, then the number."
+        "hint": "Name the drink."
       },
       {
         "type": "npc",
@@ -240,21 +270,24 @@
           ["canai"]
         ],
         "model": "Roti canai dua.",
-        "hint": "Say the food, then the number."
+        "hint": "Name the food."
       },
       {
         "type": "npc",
-        "ms": "Okey. Itu je?",
+        "ms": "Okey. Itu saja?",
         "en": "Okay. That's all?",
         "audio": "/audio/mamak-01/line-7-normal.mp3",
         "accept": [
           "itu je",
+          "itu saja",
+          "tu je",
+          "itu sahaja",
           "ya itu je",
           "itu je terima kasih",
           "dah cukup",
           "cukup"
         ],
-        "model": "Itu je.",
+        "model": "Itu saja.",
         "hint": "Say that's all."
       },
       {
@@ -264,13 +297,21 @@
           "bang kira",
           "kira bang",
           "bang nak kira",
-          "kira"
+          "ane kira",
+          "bang tolong kira",
+          "tolong kira ni",
+          "nak bil",
+          "minta bil",
+          "boleh minta bil",
+          "bang minta bil"
         ],
         "keywords": [
-          ["kira"]
+          ["kira", "minta"],
+          ["bang", "ane", "bil"],
+          ["kira", "bil"]
         ],
         "model": "Bang, kira.",
-        "hint": "Call him 'bang', then ask for the bill."
+        "hint": "Call the waiter and ask him to tally the bill."
       }
     ],
     "conclusion": {

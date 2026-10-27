@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import type { Card, TaskTurn } from '../types';
 import { matchTurn } from '../lib/matcher';
 import { logFailedAnswer } from '../lib/storage';
@@ -19,6 +19,7 @@ export type TaskSummaryResult = {
 type TaskTestProps = {
   card: Card;
   onComplete: (result: TaskSummaryResult) => void;
+  isActive: boolean;
 };
 
 type TurnState = {
@@ -27,7 +28,7 @@ type TurnState = {
   nearMiss: boolean;
 };
 
-export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete }) => {
+export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete, isActive }) => {
   const [currentTurnIdx, setCurrentTurnIdx] = useState(0);
   const [inputMode, setInputMode] = useState<'type' | 'wordbank'>('type');
   const [typedInput, setTypedInput] = useState('');
@@ -47,6 +48,8 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete }) => {
   const [totalAttempts, setTotalAttempts] = useState(0);
   const [phrasesToRevisit, setPhrasesToRevisit] = useState<string[]>([]);
   const [isConcluding, setIsConcluding] = useState(false);
+  const completionSentRef = useRef(false);
+  const typedInputRef = useRef<HTMLInputElement>(null);
 
   const currentTurn: TaskTurn | undefined = card.task.turns[currentTurnIdx];
 
@@ -57,14 +60,20 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete }) => {
 
   // Autoplay NPC audio for current turn if user has interacted
   useEffect(() => {
-    if (currentTurn?.type === 'npc' && currentTurn.audio) {
+    if (isActive && currentTurn?.type === 'npc' && currentTurn.audio) {
       playAudio({
         src: currentTurn.audio,
         fallbackText: currentTurn.ms,
         speed: 'normal'
       });
     }
-  }, [currentTurnIdx, currentTurn]);
+  }, [currentTurnIdx, currentTurn, isActive]);
+
+  useEffect(() => {
+    if (isActive && inputMode === 'type') {
+      typedInputRef.current?.focus();
+    }
+  }, [isActive, inputMode]);
 
   if (!currentTurn) return null;
 
@@ -143,6 +152,8 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete }) => {
       }
 
       // Finish task
+      if (completionSentRef.current) return;
+      completionSentRef.current = true;
       const summaryResult: TaskSummaryResult = {
         turns: card.task.turns.length,
         firstTry: firstTryCount,
@@ -242,6 +253,7 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete }) => {
         <form onSubmit={handleCheckAnswer} className="task-input-form">
           {inputMode === 'type' ? (
             <input
+              ref={typedInputRef}
               type="text"
               className="task-text-input"
               placeholder="Type your response in Malay..."
@@ -269,7 +281,7 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete }) => {
           {turnState.status === 'passed' && (
             <div className="feedback-box feedback-success" role="status">
               <span style={{ fontWeight: 700 }}>✓ Betul! (Correct)</span>
-              <span>Model answer: <strong>{currentTurn.model}</strong></span>
+              <span>One suggested answer: <strong>{currentTurn.model}</strong></span>
             </div>
           )}
 
@@ -284,7 +296,7 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete }) => {
 
           {turnState.status === 'assisted' && (
             <div className="feedback-box feedback-assisted" role="alert">
-              <span style={{ fontWeight: 700 }}>Here is how locals say it:</span>
+              <span style={{ fontWeight: 700 }}>Suggested response:</span>
               <span style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--color-primary)' }}>
                 {currentTurn.model}
               </span>

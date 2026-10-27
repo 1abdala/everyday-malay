@@ -60,12 +60,15 @@ export function matchTurn(input: string, turn: TurnAnswer): MatchResult {
   for (const acc of turn.accept) {
     const normAcc = normalize(acc, false);
     const normAccNoAddress = addressIsPoint ? normAcc : normalize(acc, true);
+    const allowAddressStripping = !turn.keywords || turn.keywords.length === 0;
 
     if (
       normInput === normAcc ||
-      normInputNoAddress === normAcc ||
-      normInput === normAccNoAddress ||
-      normInputNoAddress === normAccNoAddress
+      (allowAddressStripping && (
+        normInputNoAddress === normAcc ||
+        normInput === normAccNoAddress ||
+        normInputNoAddress === normAccNoAddress
+      ))
     ) {
       return { pass: true, by: 'exact', nearMiss: false };
     }

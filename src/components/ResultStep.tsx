@@ -3,103 +3,61 @@ import type { TaskSummaryResult } from './TaskTest';
 
 type ResultStepProps = {
   result: TaskSummaryResult | null;
+  scenarioTitle: string;
+  taskGoal: string;
+  xpAwarded: number;
+  totalXp: number;
   onRetryTask: () => void;
-  onNextCard: () => void;
+  onContinuePath: () => void;
   onBackToDeck: () => void;
-  hasNextCard: boolean;
+  returnToBrowseLabel: string;
 };
 
 export const ResultStep: React.FC<ResultStepProps> = ({
   result,
+  scenarioTitle,
+  taskGoal,
+  xpAwarded,
+  totalXp,
   onRetryTask,
-  onNextCard,
+  onContinuePath,
   onBackToDeck,
-  hasNextCard
+  returnToBrowseLabel
 }) => {
   if (!result) {
     return (
-      <div className="result-card">
-        <div className="result-icon">⏳</div>
-        <h2>Task Not Yet Completed</h2>
-        <p style={{ color: 'var(--color-text-muted)' }}>
-          Swipe back or tap "Task test" to complete the spoken role-play first!
-        </p>
+      <div className="result-card em-result-card">
+        <span className="result-kicker">ROLE-PLAY IN PROGRESS</span>
+        <div className="result-heading"><span className="result-icon" aria-hidden="true">↗</span><div><h2>Finish the conversation</h2><p>Complete the final role-play turn to save your result and completion reward.</p></div></div>
         <div className="result-actions">
-          <button type="button" className="btn-primary" onClick={onRetryTask}>
-            Go to Task test
-          </button>
-          <button type="button" className="btn-secondary" onClick={onBackToDeck}>
-            Back to deck
-          </button>
+          <button type="button" className="btn-primary" onClick={onContinuePath}>Continue on Path →</button>
+          <button type="button" className="btn-secondary" onClick={onRetryTask}>Go to role-play</button>
+          <button type="button" className="btn-ghost" onClick={onBackToDeck}>← {returnToBrowseLabel}</button>
         </div>
       </div>
     );
   }
 
-  const isFlawless = result.firstTry === result.turns;
-
   return (
-    <div className="result-card">
-      <div className="result-icon">{isFlawless ? '🌟' : '🎉'}</div>
+    <div className="result-card em-result-card">
+      <span className="result-kicker">SCENARIO COMPLETE</span>
+      <div className="result-heading"><span className="result-icon" aria-hidden="true">✓</span><div><h2>{scenarioTitle}</h2><p>Your role-play is complete.</p></div></div>
+      <section className="result-practice"><span>WHAT YOU PRACTICED</span><p>{taskGoal}</p></section>
 
-      <div>
-        <h2 style={{ fontSize: '1.5rem', marginBottom: '6px' }}>
-          {isFlawless ? 'Tahniah! Perfect run!' : 'Task Completed!'}
-        </h2>
-        <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem' }}>
-          {isFlawless
-            ? 'You cleared every turn on your first attempt.'
-            : 'Great job practicing colloquial Malaysian Malay in real life.'}
-        </p>
+      <div className="result-stats-grid" aria-label="Role-play result">
+        <div className="stat-box"><span className="stat-number">{result.firstTry}/{result.turns}</span><span className="stat-label">First try</span></div>
+        <div className="stat-box"><span className="stat-number">{result.withHint}</span><span className="stat-label">With hint</span></div>
+        <div className="stat-box"><span className="stat-number">{result.assisted}</span><span className="stat-label">Assisted</span></div>
       </div>
+      {xpAwarded > 0 && <div className="result-xp-award" role="status"><strong>+{xpAwarded} XP</strong><span>First completion reward</span></div>}
+      <p className="result-xp-total">Your XP total <strong>{totalXp} XP</strong></p>
 
-      {/* Stats Grid */}
-      <div className="result-stats-grid">
-        <div className="stat-box">
-          <span className="stat-number">{result.firstTry}</span>
-          <span className="stat-label">First try</span>
-        </div>
-        <div className="stat-box">
-          <span className="stat-number">{result.withHint}</span>
-          <span className="stat-label">With hint</span>
-        </div>
-        <div className="stat-box">
-          <span className="stat-number">{result.assisted}</span>
-          <span className="stat-label">Assisted</span>
-        </div>
-      </div>
+      {result.phrasesToRevisit.length > 0 && <section className="result-revisit"><strong>Phrases to revisit</strong><ul>{result.phrasesToRevisit.map((phrase, idx) => <li key={`${phrase}-${idx}`}>{phrase}</li>)}</ul></section>}
 
-      {/* Phrases to revisit if any */}
-      {result.phrasesToRevisit.length > 0 && (
-        <div style={{ textAlign: 'left', background: 'var(--color-surface-subtle)', padding: '14px', borderRadius: 'var(--border-radius-md)' }}>
-          <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-text-muted)', textTransform: 'uppercase', marginBottom: '6px' }}>
-            Phrases to revisit:
-          </div>
-          <ul style={{ paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '0.92rem' }}>
-            {result.phrasesToRevisit.map((phrase, idx) => (
-              <li key={idx}>
-                <strong>{phrase}</strong>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {/* Actions */}
       <div className="result-actions">
-        {hasNextCard && (
-          <button type="button" className="btn-primary" onClick={onNextCard}>
-            Next card →
-          </button>
-        )}
-
-        <button type="button" className="btn-secondary" onClick={onRetryTask}>
-          🔄 Retry task
-        </button>
-
-        <button type="button" className="btn-ghost" onClick={onBackToDeck}>
-          ← Back to deck
-        </button>
+        <button type="button" className="btn-primary" onClick={onContinuePath}>Continue on Path →</button>
+        <button type="button" className="btn-secondary" onClick={onRetryTask}>↻ Retry scenario</button>
+        <button type="button" className="btn-ghost" onClick={onBackToDeck}>← {returnToBrowseLabel}</button>
       </div>
     </div>
   );

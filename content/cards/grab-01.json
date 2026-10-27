@@ -52,8 +52,8 @@
     {
       "id": "line-5",
       "who": "npc",
-      "ms": "Ikut jalan ni ke?",
-      "en": "Take this road?",
+      "ms": "Ikut jalan mana ya?",
+      "en": "Which route should I take?",
       "audio": {
         "normal": "/audio/grab-01/line-5-normal.mp3",
         "slow": "/audio/grab-01/line-5-slow.mp3"
@@ -119,12 +119,12 @@
     {
       "spoken": "depan sikit",
       "formal": "sedikit ke hadapan",
-      "note": "giving directions"
+      "note": "Ask the driver to stop a little farther ahead by a landmark; this differs from asking to get off here (Turun sini)."
     },
     {
       "spoken": "boleh?",
       "formal": "bolehkah?",
-      "note": "spoken questions skip -kah"
+      "note": "In this spoken question, boleh is used without -kah."
     },
     {
       "spoken": "je",
@@ -150,8 +150,8 @@
       }
     },
     {
-      "ms": "Berhenti kat sini.",
-      "en": "Stop here.",
+      "ms": "Turun sini.",
+      "en": "Get off here.",
       "audio": {
         "normal": "/audio/grab-01/phrase-3-normal.mp3",
         "slow": "/audio/grab-01/phrase-3-slow.mp3"
@@ -166,16 +166,30 @@
       }
     },
     {
-      "ms": "Kiri / kanan / lurus.",
-      "en": "Left / right / straight.",
+      "ms": "Boleh. Terima kasih, bang.",
+      "en": "Okay. Thanks, bro.",
       "audio": {
         "normal": "/audio/grab-01/phrase-5-normal.mp3",
         "slow": "/audio/grab-01/phrase-5-slow.mp3"
       }
     }
   ],
+  "referencePhrases": [
+    {
+      "ms": "Kiri / kanan / lurus.",
+      "en": "Left / right / straight.",
+      "audio": {
+        "normal": "/audio/grab-01/reference-1-normal.mp3",
+        "slow": "/audio/grab-01/reference-1-slow.mp3"
+      }
+    },
+    {
+      "ms": "Lalu mana ya?",
+      "en": "Which way should I go? Optional route-question alternative; commonness in this exact Grab-driver context has not been confirmed."
+    }
+  ],
   "task": {
-    "goal": "Confirm the trip, get the aircon on, and tell the driver where to stop.",
+    "goal": "Confirm the trip, ask for the aircon, tell the driver to follow the GPS, and ask to get off here.",
     "turns": [
       {
         "type": "npc",
@@ -210,8 +224,8 @@
       },
       {
         "type": "npc",
-        "ms": "Ikut jalan ni ke?",
-        "en": "Take this road?",
+        "ms": "Ikut jalan mana ya?",
+        "en": "Which route should I take?",
         "audio": "/audio/grab-01/line-5-normal.mp3",
         "accept": [
           "ikut gps je",
@@ -228,19 +242,20 @@
       },
       {
         "type": "prompt",
-        "en": "You're almost there. Ask the driver to stop here.",
+        "en": "You're almost there. Tell the driver you want to get off here.",
         "accept": [
           "berhenti kat sini",
           "berhenti sini",
           "stop kat sini",
-          "berhenti depan sikit",
-          "depan sikit"
+          "stop sini",
+          "turun sini"
         ],
         "keywords": [
-          ["berhenti", "stop", "depan"]
+          ["berhenti", "stop"],
+          ["sini"]
         ],
-        "model": "Berhenti kat sini.",
-        "hint": "Say 'stop here'."
+        "model": "Turun sini.",
+        "hint": "Say that you want to get off here."
       }
     ]
   }
