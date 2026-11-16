@@ -7,14 +7,16 @@ import { ScenarioArtwork } from './ScenarioArtwork';
 import { CardScreen } from '../screens/Card';
 
 vi.mock('../lib/audio', () => ({
-  precacheCardAudio: vi.fn(),
   stopAudio: vi.fn()
 }));
 
 vi.mock('../lib/storage', () => ({
   completeScenario: vi.fn(),
   loadRewardProgress: vi.fn(() => ({ totalXp: 0 })),
-  saveCardProgress: vi.fn()
+  saveCardProgress: vi.fn(),
+  loadSavedPhrases: vi.fn(() => []),
+  removeSavedPhrase: vi.fn(),
+  savePhraseForReview: vi.fn()
 }));
 
 vi.mock('../lib/track', () => ({ track: vi.fn() }));
@@ -27,6 +29,7 @@ const shopLesson = {
   id: 'shop-01',
   title: 'At the shop counter',
   scene: 'You are at a local shop.',
+  learnerGoal: 'Ask for an item and understand the price.',
   icon: '🏪',
   minutes: 5,
   variety: 'Colloquial Malay',
@@ -34,6 +37,7 @@ const shopLesson = {
   dialogue: [],
   chips: [],
   phrases: [],
+  comprehensionQuestions: [],
   task: { goal: 'Complete the shop purchase.', turns: [] }
 } as Card;
 const mediaPlay = vi.fn<() => Promise<void>>();

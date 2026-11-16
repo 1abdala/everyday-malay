@@ -5,7 +5,7 @@ type StepDotsProps = { totalSteps: number; currentStep: number };
 const STEP_LABELS = [
   'Scene',
   'Listen',
-  'Say it like locals',
+  'Understand',
   'Key phrases',
   'Task test',
   'Result'

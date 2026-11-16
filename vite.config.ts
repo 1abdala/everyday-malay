@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
+import { AUDIO_RUNTIME_CACHE } from './src/lib/audioManifest';
 
 const repositoryBase = '/everyday-malay/';
 
@@ -41,13 +42,13 @@ export default defineConfig({
             urlPattern: ({ url }) => url.pathname.startsWith(`${repositoryBase}audio/`),
             handler: 'CacheFirst',
             options: {
-              cacheName: 'everyday-malay-audio',
+              cacheName: AUDIO_RUNTIME_CACHE.name,
               cacheableResponse: {
                 statuses: [200]
               },
               expiration: {
-                maxEntries: 100,
-                maxAgeSeconds: 30 * 24 * 60 * 60 // 30 days
+                maxEntries: AUDIO_RUNTIME_CACHE.maxEntries,
+                maxAgeSeconds: AUDIO_RUNTIME_CACHE.maxAgeSeconds
               }
             }
           }

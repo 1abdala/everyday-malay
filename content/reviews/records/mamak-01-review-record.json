@@ -1,0 +1,1259 @@
+{
+  "scenarioId": "mamak-01",
+  "sourceFile": "content/cards/mamak-01.json",
+  "reviewStatus": "draft",
+  "reviewer": null,
+  "reviewedAt": null,
+  "lineReviews": [
+    {
+      "lineId": "line-1",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-2",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-3",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-4",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-5",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-6",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-7",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-8",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-9",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-10",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    }
+  ],
+  "phraseReviews": [
+    {
+      "phraseId": "mamak-01-phrase-01",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "mamak-01-phrase-02",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "mamak-01-phrase-03",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "mamak-01-phrase-04",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "mamak-01-phrase-05",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "mamak-01-phrase-06",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "mamak-01-phrase-07",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "mamak-01-phrase-08",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    }
+  ],
+  "glossReviews": [],
+  "taskAlternativeReviews": [
+    {
+      "taskId": "mamak-01-task-001",
+      "alternativeId": "mamak-01-task-001-alt-001",
+      "response": "teh tarik satu",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-001",
+      "alternativeId": "mamak-01-task-001-alt-002",
+      "response": "satu teh tarik",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-001",
+      "alternativeId": "mamak-01-task-001-alt-003",
+      "response": "nak teh tarik",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-001",
+      "alternativeId": "mamak-01-task-001-alt-004",
+      "response": "teh tarik satu kurang manis",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-001",
+      "alternativeId": "mamak-01-task-001-alt-005",
+      "response": "teh tarik satu je",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-002",
+      "alternativeId": "mamak-01-task-002-alt-001",
+      "response": "makan sini",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-002",
+      "alternativeId": "mamak-01-task-002-alt-002",
+      "response": "sini",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-002",
+      "alternativeId": "mamak-01-task-002-alt-003",
+      "response": "tapau",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-002",
+      "alternativeId": "mamak-01-task-002-alt-004",
+      "response": "bungkus",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-002",
+      "alternativeId": "mamak-01-task-002-alt-005",
+      "response": "makan sini je",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-003",
+      "alternativeId": "mamak-01-task-003-alt-001",
+      "response": "roti canai dua",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-003",
+      "alternativeId": "mamak-01-task-003-alt-002",
+      "response": "dua roti canai",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-003",
+      "alternativeId": "mamak-01-task-003-alt-003",
+      "response": "nak roti canai dua",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-003",
+      "alternativeId": "mamak-01-task-003-alt-004",
+      "response": "roti canai dua kuah dhal lebih",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-003",
+      "alternativeId": "mamak-01-task-003-alt-005",
+      "response": "roti canai dua kuah dhal sikit",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-004",
+      "alternativeId": "mamak-01-task-004-alt-001",
+      "response": "itu je",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-004",
+      "alternativeId": "mamak-01-task-004-alt-002",
+      "response": "itu saja",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-004",
+      "alternativeId": "mamak-01-task-004-alt-003",
+      "response": "tu je",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-004",
+      "alternativeId": "mamak-01-task-004-alt-004",
+      "response": "itu sahaja",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-004",
+      "alternativeId": "mamak-01-task-004-alt-005",
+      "response": "ya itu je",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-004",
+      "alternativeId": "mamak-01-task-004-alt-006",
+      "response": "itu je terima kasih",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-004",
+      "alternativeId": "mamak-01-task-004-alt-007",
+      "response": "dah cukup",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-004",
+      "alternativeId": "mamak-01-task-004-alt-008",
+      "response": "cukup",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-005",
+      "alternativeId": "mamak-01-task-005-alt-001",
+      "response": "bang kira",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-005",
+      "alternativeId": "mamak-01-task-005-alt-002",
+      "response": "kira bang",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-005",
+      "alternativeId": "mamak-01-task-005-alt-003",
+      "response": "bang nak kira",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-005",
+      "alternativeId": "mamak-01-task-005-alt-004",
+      "response": "ane kira",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-005",
+      "alternativeId": "mamak-01-task-005-alt-005",
+      "response": "bang tolong kira",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-005",
+      "alternativeId": "mamak-01-task-005-alt-006",
+      "response": "tolong kira ni",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-005",
+      "alternativeId": "mamak-01-task-005-alt-007",
+      "response": "nak bil",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-005",
+      "alternativeId": "mamak-01-task-005-alt-008",
+      "response": "minta bil",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-005",
+      "alternativeId": "mamak-01-task-005-alt-009",
+      "response": "boleh minta bil",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "mamak-01-task-005",
+      "alternativeId": "mamak-01-task-005-alt-010",
+      "response": "bang minta bil",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    }
+  ],
+  "comprehensionReviews": [
+    {
+      "questionId": "mamak-01-understand-01",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "questionId": "mamak-01-understand-02",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "questionId": "mamak-01-understand-03",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    }
+  ],
+  "audioReviews": [
+    {
+      "assetId": "mamak-01_line-1",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "mamak-01_line-2",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "mamak-01_line-3",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "mamak-01_line-4",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "mamak-01_line-5",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "mamak-01_line-6",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "mamak-01_line-7",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "mamak-01_line-8",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "mamak-01_line-9",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "mamak-01_line-10",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "mamak-01-phrase-01",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "mamak-01-phrase-02",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "mamak-01-phrase-03",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "mamak-01-phrase-04",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "mamak-01-phrase-05",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "mamak-01-phrase-06",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "mamak-01-phrase-07",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "mamak-01-phrase-08",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    }
+  ],
+  "comparisonReviews": [
+    {
+      "comparisonId": "mamak-01-comparison-001",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "spoken": "nak",
+      "formal": "hendak, mahu"
+    },
+    {
+      "comparisonId": "mamak-01-comparison-002",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "spoken": "tu je",
+      "formal": "itu saja"
+    },
+    {
+      "comparisonId": "mamak-01-comparison-003",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "spoken": "lebih",
+      "formal": "lebih"
+    },
+    {
+      "comparisonId": "mamak-01-comparison-004",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "spoken": "ke",
+      "formal": "atau"
+    },
+    {
+      "comparisonId": "mamak-01-comparison-005",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "spoken": "tapau",
+      "formal": "bungkus"
+    },
+    {
+      "comparisonId": "mamak-01-comparison-006",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "spoken": "kira",
+      "formal": "minta bil (contextual)"
+    }
+  ],
+  "taskTurnReviews": [
+    {
+      "taskId": "mamak-01-task-001",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "prompt": "Nak minum apa?",
+      "model": "Teh tarik satu."
+    },
+    {
+      "taskId": "mamak-01-task-002",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "prompt": "Makan sini ke tapau?",
+      "model": "Makan sini."
+    },
+    {
+      "taskId": "mamak-01-task-003",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "prompt": "Nak makan apa?",
+      "model": "Roti canai dua."
+    },
+    {
+      "taskId": "mamak-01-task-004",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "prompt": "Okey. Itu saja?",
+      "model": "Itu saja."
+    },
+    {
+      "taskId": "mamak-01-task-005",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "prompt": "You finished eating. Call the waiter and ask for the bill.",
+      "model": "Bang, kira."
+    },
+    {
+      "taskId": "mamak-01-task-001",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task dialogue",
+      "prompt": "Nak minum apa?",
+      "model": "Teh tarik satu."
+    },
+    {
+      "taskId": "mamak-01-task-001",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task model response",
+      "prompt": "Nak minum apa?",
+      "model": "Teh tarik satu."
+    },
+    {
+      "taskId": "mamak-01-task-002",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task dialogue",
+      "prompt": "Makan sini ke tapau?",
+      "model": "Makan sini."
+    },
+    {
+      "taskId": "mamak-01-task-002",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task model response",
+      "prompt": "Makan sini ke tapau?",
+      "model": "Makan sini."
+    },
+    {
+      "taskId": "mamak-01-task-003",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task dialogue",
+      "prompt": "Nak makan apa?",
+      "model": "Roti canai dua."
+    },
+    {
+      "taskId": "mamak-01-task-003",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task model response",
+      "prompt": "Nak makan apa?",
+      "model": "Roti canai dua."
+    },
+    {
+      "taskId": "mamak-01-task-004",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task dialogue",
+      "prompt": "Okey. Itu saja?",
+      "model": "Itu saja."
+    },
+    {
+      "taskId": "mamak-01-task-004",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task model response",
+      "prompt": "Okey. Itu saja?",
+      "model": "Itu saja."
+    },
+    {
+      "taskId": "mamak-01-task-005",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task model response",
+      "prompt": "You finished eating. Call the waiter and ask for the bill.",
+      "model": "Bang, kira."
+    }
+  ],
+  "referencePhraseReviews": [
+    {
+      "phraseId": "mamak-01-reference-01",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "mamak-01-reference-02",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "mamak-01-reference-03",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "mamak-01-reference-04",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    }
+  ],
+  "conclusionReviews": [
+    {
+      "conclusionId": "mamak-01",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "malay": "Semua tujuh ringgit."
+    }
+  ]
+}

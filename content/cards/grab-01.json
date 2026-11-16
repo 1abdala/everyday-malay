@@ -102,31 +102,37 @@
   ],
   "chips": [
     {
+      "id": "grab-01-comparison-001",
       "spoken": "nak pergi",
       "formal": "hendak pergi",
       "note": "spoken"
     },
     {
+      "id": "grab-01-comparison-002",
       "spoken": "ni / tu",
       "formal": "ini / itu",
       "note": "spoken"
     },
     {
+      "id": "grab-01-comparison-003",
       "spoken": "kat sini",
       "formal": "di sini",
       "note": "\"kat\" is everyday speech"
     },
     {
+      "id": "grab-01-comparison-004",
       "spoken": "depan sikit",
       "formal": "sedikit ke hadapan",
       "note": "Ask the driver to stop a little farther ahead by a landmark; this differs from asking to get off here (Turun sini)."
     },
     {
+      "id": "grab-01-comparison-005",
       "spoken": "boleh?",
       "formal": "bolehkah?",
       "note": "In this spoken question, boleh is used without -kah."
     },
     {
+      "id": "grab-01-comparison-006",
       "spoken": "je",
       "formal": "sahaja",
       "note": "spoken"
@@ -139,6 +145,13 @@
       "audio": {
         "normal": "/audio/grab-01/phrase-1-normal.mp3",
         "slow": "/audio/grab-01/phrase-1-slow.mp3"
+      },
+      "id": "grab-01-phrase-01",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
       }
     },
     {
@@ -147,6 +160,13 @@
       "audio": {
         "normal": "/audio/grab-01/phrase-2-normal.mp3",
         "slow": "/audio/grab-01/phrase-2-slow.mp3"
+      },
+      "id": "grab-01-phrase-02",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
       }
     },
     {
@@ -155,6 +175,13 @@
       "audio": {
         "normal": "/audio/grab-01/phrase-3-normal.mp3",
         "slow": "/audio/grab-01/phrase-3-slow.mp3"
+      },
+      "id": "grab-01-phrase-03",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
       }
     },
     {
@@ -163,6 +190,13 @@
       "audio": {
         "normal": "/audio/grab-01/phrase-4-normal.mp3",
         "slow": "/audio/grab-01/phrase-4-slow.mp3"
+      },
+      "id": "grab-01-phrase-04",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
       }
     },
     {
@@ -171,6 +205,13 @@
       "audio": {
         "normal": "/audio/grab-01/phrase-5-normal.mp3",
         "slow": "/audio/grab-01/phrase-5-slow.mp3"
+      },
+      "id": "grab-01-phrase-05",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
       }
     }
   ],
@@ -181,17 +222,32 @@
       "audio": {
         "normal": "/audio/grab-01/reference-1-normal.mp3",
         "slow": "/audio/grab-01/reference-1-slow.mp3"
+      },
+      "id": "grab-01-reference-01",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
       }
     },
     {
       "ms": "Lalu mana ya?",
-      "en": "Which way should I go? Optional route-question alternative; commonness in this exact Grab-driver context has not been confirmed."
+      "en": "Which way should I go? Optional route-question alternative; commonness in this exact Grab-driver context has not been confirmed.",
+      "id": "grab-01-reference-02",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
+      }
     }
   ],
   "task": {
     "goal": "Confirm the trip, ask for the aircon, tell the driver to follow the GPS, and ask to get off here.",
     "turns": [
       {
+        "id": "grab-01-task-001",
         "type": "npc",
         "ms": "Hi. Nak pergi KLCC, ya?",
         "en": "Hi. Going to KLCC, right?",
@@ -206,6 +262,7 @@
         "hint": "Say yes."
       },
       {
+        "id": "grab-01-task-002",
         "type": "prompt",
         "en": "You're hot. Ask the driver to turn on the aircon.",
         "accept": [
@@ -215,14 +272,23 @@
           "boleh pasang aircond tak"
         ],
         "keywords": [
-          ["boleh"],
-          ["pasang", "buka"],
-          ["aircond", "aircon"]
+          [
+            "boleh"
+          ],
+          [
+            "pasang",
+            "buka"
+          ],
+          [
+            "aircond",
+            "aircon"
+          ]
         ],
         "model": "Boleh pasang aircond?",
         "hint": "Ask: can you ___ the aircon?"
       },
       {
+        "id": "grab-01-task-003",
         "type": "npc",
         "ms": "Ikut jalan mana ya?",
         "en": "Which route should I take?",
@@ -234,13 +300,18 @@
           "ikut gps je ya"
         ],
         "keywords": [
-          ["ikut"],
-          ["gps"]
+          [
+            "ikut"
+          ],
+          [
+            "gps"
+          ]
         ],
         "model": "Ikut GPS je.",
         "hint": "Tell him to follow the GPS."
       },
       {
+        "id": "grab-01-task-004",
         "type": "prompt",
         "en": "You're almost there. Tell the driver you want to get off here.",
         "accept": [
@@ -251,12 +322,83 @@
           "turun sini"
         ],
         "keywords": [
-          ["berhenti", "stop"],
-          ["sini"]
+          [
+            "berhenti",
+            "stop"
+          ],
+          [
+            "sini"
+          ]
         ],
         "model": "Turun sini.",
         "hint": "Say that you want to get off here."
       }
     ]
-  }
+  },
+  "learnerGoal": "Learn how to tell a driver where you are going and confirm the trip.",
+  "comprehensionQuestions": [
+    {
+      "id": "grab-01-understand-01",
+      "prompt": "What does the passenger ask the driver to do?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Turn on the air conditioning"
+        },
+        {
+          "id": "b",
+          "text": "Open the window"
+        },
+        {
+          "id": "c",
+          "text": "Stop the car"
+        }
+      ],
+      "correctChoiceId": "a",
+      "explanation": "The passenger asks for the air conditioning to be turned on.",
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "grab-01-understand-02",
+      "prompt": "How does the passenger ask the driver to choose the route?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Follow the GPS"
+        },
+        {
+          "id": "b",
+          "text": "Take the highway"
+        },
+        {
+          "id": "c",
+          "text": "Stop at the next shop"
+        }
+      ],
+      "correctChoiceId": "a",
+      "explanation": "The passenger says to follow the GPS.",
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "grab-01-understand-03",
+      "prompt": "What does the passenger mean by “Turun sini”?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Get off here"
+        },
+        {
+          "id": "b",
+          "text": "Drive a little farther"
+        },
+        {
+          "id": "c",
+          "text": "Turn left here"
+        }
+      ],
+      "correctChoiceId": "a",
+      "explanation": "The passenger asks to get off at this location.",
+      "reviewStatus": "draft"
+    }
+  ]
 }

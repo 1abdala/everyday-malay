@@ -49,8 +49,8 @@ function isAddressPointOfTurn(turn: TurnAnswer): boolean {
  */
 export function matchTurn(input: string, turn: TurnAnswer): MatchResult {
   const normInput = normalize(input, false);
-  if (!normInput) {
-    return { pass: false, by: 'none', nearMiss: false };
+  if (!normInput || normInput.length > 500) {
+    return { status: 'incorrect', pass: false, by: 'none', nearMiss: false };
   }
 
   const addressIsPoint = isAddressPointOfTurn(turn);
@@ -70,7 +70,7 @@ export function matchTurn(input: string, turn: TurnAnswer): MatchResult {
         normInputNoAddress === normAccNoAddress
       ))
     ) {
-      return { pass: true, by: 'exact', nearMiss: false };
+      return { status: 'accepted', pass: true, by: 'exact', nearMiss: false };
     }
   }
 
@@ -103,14 +103,14 @@ export function matchTurn(input: string, turn: TurnAnswer): MatchResult {
     });
 
     if (matchedGroups === turn.keywords.length) {
-      return { pass: true, by: 'keywords', nearMiss: false };
+      return { status: 'accepted', pass: true, by: 'keywords', nearMiss: false };
     }
 
     const nearMiss =
       matchedGroups >= Math.ceil(turn.keywords.length / 2) &&
       matchedGroups < turn.keywords.length;
 
-    return { pass: false, by: 'none', nearMiss };
+    return { status: nearMiss ? 'close' : 'incorrect', pass: false, by: 'none', nearMiss };
   }
 
   // 3. If no keywords defined, check for token overlap with accepted answers for nearMiss
@@ -127,5 +127,5 @@ export function matchTurn(input: string, turn: TurnAnswer): MatchResult {
     }
   }
 
-  return { pass: false, by: 'none', nearMiss };
+  return { status: nearMiss ? 'close' : 'incorrect', pass: false, by: 'none', nearMiss };
 }

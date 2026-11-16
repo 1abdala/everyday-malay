@@ -1,4 +1,5 @@
 export type TurnAnswer = {
+  id?: string;
   accept: string[];
   keywords?: string[][];
   model: string;
@@ -31,18 +32,47 @@ export type DialogueLine = {
 };
 
 export type Chip = {
+  id?: string;
   spoken: string;
   formal: string;
   note: string;
 };
 
 export type Phrase = {
+  id: string;
   ms: string;
   en: string;
+  register?: 'informal' | 'neutral' | 'polite' | 'formal';
+  wordGlosses?: WordGloss[];
+  usageNote?: string;
+  review: PhraseReview;
   audio?: {
     normal?: string;
     slow?: string;
   };
+};
+
+export type WordGloss = {
+  malay: string;
+  english: string;
+  reviewStatus: 'draft' | 'approved';
+  reviewer?: string;
+  reviewedAt?: string;
+};
+
+export type PhraseReview = {
+  status: 'draft' | 'approved';
+  reviewer: string | null;
+  reviewedAt: string | null;
+  notes: string[];
+};
+
+export type SavedPhrase = {
+  id: string;
+  scenarioId: string;
+  malay: string;
+  english: string;
+  savedAt: number;
 };
 
 export type CardTaskConclusion = {
@@ -56,6 +86,7 @@ export type Card = {
   id: string;
   title: string;
   scene: string;
+  learnerGoal: string;
   icon: string;
   minutes: number;
   variety: string;
@@ -68,6 +99,7 @@ export type Card = {
   chips: Chip[];
   phrases: Phrase[];
   referencePhrases?: Phrase[];
+  comprehensionQuestions: ComprehensionQuestion[];
   task: {
     goal: string;
     turns: TaskTurn[];
@@ -75,10 +107,23 @@ export type Card = {
   };
 };
 
+export type ComprehensionQuestion = {
+  id: string;
+  prompt: string;
+  choices: { id: string; text: string }[];
+  correctChoiceId: string;
+  explanation: string;
+  reviewStatus: 'draft' | 'approved';
+  audioText?: string;
+  audio?: { normal?: string; slow?: string };
+};
+
 export type CardProgress = {
   started: boolean;
   finished: boolean;
   lastStepIndex: number;
+  taskDraft?: TaskDraftProgress;
+  comprehensionResults?: Record<string, boolean>;
   bestTask?: {
     turns: number;
     firstTry: number;
@@ -89,6 +134,25 @@ export type CardProgress = {
   };
   attempts: number;
   updatedAt: number;
+};
+
+export type TaskDraftProgress = {
+  turnIndex: number;
+  inputMode: 'type' | 'wordbank';
+  typedInput: string;
+  selectedWordTiles: { id: string; word: string }[];
+  turnState: {
+    status: 'answering' | 'passed' | 'hint' | 'assisted';
+    attempts: number;
+    nearMiss: boolean;
+  };
+  firstTryCount: number;
+  withHintCount: number;
+  assistedCount: number;
+  totalAttempts: number;
+  phrasesToRevisit: string[];
+  isConcluding: boolean;
+  assistedReconstructed: boolean;
 };
 
 export type ProgressMap = Record<string, CardProgress>;
@@ -106,6 +170,7 @@ export type UserSettings = {
 };
 
 export type MatchResult = {
+  status: 'accepted' | 'close' | 'incorrect';
   pass: boolean;
   by: "exact" | "keywords" | "none";
   nearMiss: boolean;

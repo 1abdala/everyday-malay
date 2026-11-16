@@ -36,6 +36,7 @@ describe('Matcher Core Rules', () => {
     expect(res.pass).toBe(false);
     expect(res.by).toBe('none');
     expect(res.nearMiss).toBe(false);
+    expect(res.status).toBe('incorrect');
   });
 
   it('passes on case/punctuation insensitivity', () => {
@@ -120,6 +121,13 @@ describe('Matcher Core Rules', () => {
     const res = matchTurn('teh panas', dummyTurn);
     expect(res.pass).toBe(false);
     expect(res.nearMiss).toBe(true);
+    expect(res.status).toBe('close');
+  });
+
+  it('labels accepted responses and rejects extremely long input safely', () => {
+    const turn: TurnAnswer = { accept: ['Terima kasih'], model: 'Terima kasih.', hint: 'Say thanks.' };
+    expect(matchTurn(' terima   kasih! ', turn).status).toBe('accepted');
+    expect(matchTurn('x'.repeat(501), turn)).toMatchObject({ status: 'incorrect', pass: false });
   });
 });
 
@@ -170,6 +178,8 @@ describe('Mamak-01 Task Turns Acceptance & Rejection Tests', () => {
       expect(matchTurn('roti canai dua', turn).pass).toBe(true);
       expect(matchTurn('dua roti canai', turn).pass).toBe(true);
       expect(matchTurn('roti canai 2 kuah dhal sikit', turn).pass).toBe(true);
+      expect(matchTurn('roti canai dua kuah dhal lebih', turn).pass).toBe(true);
+      expect(matchTurn('roti canai 2 kuah dhal lebih', turn).pass).toBe(true);
       expect(matchTurn('roti canay dua', turn).pass).toBe(true);
     });
 
@@ -230,6 +240,23 @@ describe('Mamak-01 Task Turns Acceptance & Rejection Tests', () => {
   });
 });
 
+describe('Shop-01 water request', () => {
+  const waterTurn = shopCard.task.turns[0];
+
+  it('accepts reviewed bottled-water inquiry variants', () => {
+    expect(matchTurn('Maaf, ada air mineral tak?', waterTurn).pass).toBe(true);
+    expect(matchTurn('ada air mineral tak', waterTurn).pass).toBe(true);
+    expect(matchTurn('Maaf, ada air mineral?', waterTurn).pass).toBe(true);
+    expect(matchTurn('ada air mineral', waterTurn).pass).toBe(true);
+    expect(matchTurn('bang ada air mineral', waterTurn).pass).toBe(true);
+  });
+
+  it('fails on unrelated inquiries', () => {
+    expect(matchTurn('ada roti tak', waterTurn).pass).toBe(false);
+    expect(matchTurn('nak bayar kad', waterTurn).pass).toBe(false);
+  });
+});
+
 describe('Shop-01 bag and receipt declines', () => {
   const bagTurn = shopCard.task.turns[1];
   const receiptTurn = shopCard.task.turns[3];
@@ -241,6 +268,10 @@ describe('Shop-01 bag and receipt declines', () => {
     expect(matchTurn('takpe terima kasih', bagTurn).pass).toBe(true);
     expect(matchTurn('tak apa terima kasih', bagTurn).pass).toBe(true);
     expect(matchTurn('Tak nak plastik.', bagTurn).pass).toBe(true);
+    expect(matchTurn('Tak nak', bagTurn).pass).toBe(true);
+    expect(matchTurn('tak nak', bagTurn).pass).toBe(true);
+    expect(matchTurn('Takpe, tak nak', bagTurn).pass).toBe(true);
+    expect(matchTurn('takpe tak nak', bagTurn).pass).toBe(true);
     expect(matchTurn('nak beg plastik', bagTurn).pass).toBe(false);
     expect(matchTurn('Tak nak resit.', bagTurn).pass).toBe(false);
   });
@@ -251,6 +282,10 @@ describe('Shop-01 bag and receipt declines', () => {
     expect(matchTurn('takpe', receiptTurn).pass).toBe(true);
     expect(matchTurn('takpe terima kasih', receiptTurn).pass).toBe(true);
     expect(matchTurn('Tak nak resit.', receiptTurn).pass).toBe(true);
+    expect(matchTurn('Tak nak', receiptTurn).pass).toBe(true);
+    expect(matchTurn('tak nak', receiptTurn).pass).toBe(true);
+    expect(matchTurn('Takpe, tak nak', receiptTurn).pass).toBe(true);
+    expect(matchTurn('takpe tak nak', receiptTurn).pass).toBe(true);
     expect(matchTurn('nak resit', receiptTurn).pass).toBe(false);
     expect(matchTurn('Tak nak plastik.', receiptTurn).pass).toBe(false);
   });

@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import type { DialogueLine as DialogueLineType } from '../types';
 import { AudioButtons } from './AudioButtons';
 
 type DialogueLineProps = {
   line: DialogueLineType;
   showEnglish: boolean;
+  scenarioId?: string;
 };
 
-export const DialogueLine: React.FC<DialogueLineProps> = ({ line, showEnglish }) => {
+export const DialogueLine: React.FC<DialogueLineProps> = ({ line, showEnglish, scenarioId }) => {
   const isYou = line.who === 'you';
+  const [revealed, setRevealed] = useState(showEnglish);
+  useEffect(() => setRevealed(showEnglish), [showEnglish]);
 
   return (
     <div className={`chat-bubble-row ${isYou ? 'you' : 'npc'}`}>
@@ -21,10 +24,15 @@ export const DialogueLine: React.FC<DialogueLineProps> = ({ line, showEnglish })
 
         <div className="bubble-text-ms">{line.ms}</div>
 
-        {showEnglish && <div className="bubble-text-en">{line.en}</div>}
+        <button type="button" className="dialogue-translation-toggle" aria-expanded={revealed} onClick={() => setRevealed((value) => !value)}>
+          {revealed ? 'Hide English' : 'Show English meaning'}
+        </button>
+        {revealed && <div className="bubble-text-en">{line.en}</div>}
 
         <div className="bubble-audio-actions">
           <AudioButtons
+            audioId={scenarioId ? `${scenarioId}_${line.id}` : undefined}
+            scenarioId={scenarioId}
             normalSrc={line.audio?.normal}
             slowSrc={line.audio?.slow}
             textToSpeak={line.ms}

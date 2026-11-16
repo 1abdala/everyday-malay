@@ -12,7 +12,7 @@
     {
       "id": "line-1",
       "who": "you",
-      "ms": "Maaf, ada air mineral?",
+      "ms": "Maaf, ada air mineral tak?",
       "en": "Excuse me, do you have bottled water?",
       "audio": {
         "normal": "/audio/shop-01/line-1-normal.mp3",
@@ -52,8 +52,8 @@
     {
       "id": "line-5",
       "who": "you",
-      "ms": "Tak nak plastik.",
-      "en": "I don't want a plastic bag.",
+      "ms": "Takpe, tak nak.",
+      "en": "No thanks, I don't need one.",
       "audio": {
         "normal": "/audio/shop-01/line-5-normal.mp3",
         "slow": "/audio/shop-01/line-5-slow.mp3"
@@ -62,7 +62,7 @@
     {
       "id": "line-6",
       "who": "npc",
-      "ms": "Semua lapan ringgit lima puluh sen.",
+      "ms": "Semuanya lapan ringgit lima puluh sen.",
       "en": "Eight ringgit fifty altogether.",
       "audio": {
         "normal": "/audio/shop-01/line-6-normal.mp3",
@@ -102,8 +102,8 @@
     {
       "id": "line-10",
       "who": "you",
-      "ms": "Tak nak resit.",
-      "en": "I don't want a receipt.",
+      "ms": "Tak nak.",
+      "en": "No thanks.",
       "audio": {
         "normal": "/audio/shop-01/line-10-normal.mp3",
         "slow": "/audio/shop-01/line-10-slow.mp3"
@@ -112,21 +112,25 @@
   ],
   "chips": [
     {
+      "id": "shop-01-comparison-001",
       "spoken": "tak payah",
       "formal": "tidak perlu",
       "note": "spoken, very common"
     },
     {
+      "id": "shop-01-comparison-002",
       "spoken": "tak nak",
       "formal": "tidak mahu",
-      "note": "spoken"
+      "note": "spoken; concise decline, often combined as ‘takpe, tak nak’"
     },
     {
+      "id": "shop-01-comparison-003",
       "spoken": "kat belakang",
       "formal": "di belakang",
       "note": "\"kat\" is everyday speech"
     },
     {
+      "id": "shop-01-comparison-004",
       "spoken": "guna",
       "formal": "menggunakan",
       "note": "spoken drops me-"
@@ -135,11 +139,47 @@
   "phrases": [
     {
       "ms": "Ada plastik tak?",
-      "en": "Do you have a plastic bag?"
+      "en": "Do you have a plastic bag?",
+      "id": "shop-01-phrase-01",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
+      }
+    },
+    {
+      "ms": "Tak nak.",
+      "en": "No thanks / I don't want (one).",
+      "id": "shop-01-phrase-02",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
+      }
+    },
+    {
+      "ms": "Takpe, tak nak.",
+      "en": "It's okay, I don't want (one).",
+      "id": "shop-01-phrase-03",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
+      }
     },
     {
       "ms": "Tak nak plastik.",
-      "en": "I don't want a plastic bag."
+      "en": "I don't want a plastic bag.",
+      "id": "shop-01-phrase-04",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
+      }
     },
     {
       "ms": "Boleh bayar guna kad?",
@@ -147,11 +187,25 @@
       "audio": {
         "normal": "/audio/shop-01/phrase-4-normal.mp3",
         "slow": "/audio/shop-01/phrase-4-slow.mp3"
+      },
+      "id": "shop-01-phrase-05",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
       }
     },
     {
       "ms": "Nak resit.",
-      "en": "I'd like a receipt."
+      "en": "I'd like a receipt.",
+      "id": "shop-01-phrase-06",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
+      }
     },
     {
       "ms": "Tak nak resit.",
@@ -159,6 +213,13 @@
       "audio": {
         "normal": "/audio/shop-01/phrase-5-normal.mp3",
         "slow": "/audio/shop-01/phrase-5-slow.mp3"
+      },
+      "id": "shop-01-phrase-07",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
       }
     }
   ],
@@ -166,29 +227,44 @@
     "goal": "Ask for water, say no to a bag, pay by card, and decline a receipt.",
     "turns": [
       {
+        "id": "shop-01-task-001",
         "type": "prompt",
         "en": "Ask if the shop has bottled water.",
         "accept": [
           "ada air mineral",
           "maaf ada air mineral",
           "ada air mineral tak",
+          "maaf ada air mineral tak",
           "bang ada air mineral",
           "kak ada air mineral"
         ],
         "keywords": [
-          ["ada"],
-          ["air"],
-          ["mineral"]
+          [
+            "ada"
+          ],
+          [
+            "air"
+          ],
+          [
+            "mineral"
+          ]
         ],
-        "model": "Maaf, ada air mineral?",
+        "model": "Maaf, ada air mineral tak?",
         "hint": "Ask: do you have ___?"
       },
       {
+        "id": "shop-01-task-002",
         "type": "npc",
         "ms": "Nak beg plastik?",
         "en": "Want a plastic bag?",
         "audio": "/audio/shop-01/line-4-normal.mp3",
         "accept": [
+          "tak nak",
+          "takpe tak nak",
+          "takpe, tak nak",
+          "tak apa tak nak",
+          "tak nak terima kasih",
+          "takpe tak nak terima kasih",
           "tak payah",
           "tak apa",
           "takpe",
@@ -197,10 +273,11 @@
           "tak apa terima kasih",
           "tak nak plastik"
         ],
-        "model": "Tak nak plastik.",
-        "hint": "Say 'no need'."
+        "model": "Takpe, tak nak.",
+        "hint": "Say 'no need' or 'no thanks'."
       },
       {
+        "id": "shop-01-task-003",
         "type": "prompt",
         "en": "Ask if you can pay by card.",
         "accept": [
@@ -210,21 +287,34 @@
           "boleh bayar kad"
         ],
         "keywords": [
-          ["boleh"],
-          ["bayar", "guna", "pakai"],
-          ["kad"]
+          [
+            "boleh"
+          ],
+          [
+            "bayar",
+            "guna",
+            "pakai"
+          ],
+          [
+            "kad"
+          ]
         ],
         "model": "Boleh bayar guna kad?",
         "hint": "Ask: can I pay ___ card?"
       },
       {
+        "id": "shop-01-task-004",
         "type": "npc",
         "ms": "Nak resit?",
         "en": "Want a receipt?",
         "audio": "/audio/shop-01/line-9-normal.mp3",
         "accept": [
           "tak nak",
+          "takpe tak nak",
+          "takpe, tak nak",
+          "tak apa tak nak",
           "tak nak terima kasih",
+          "takpe tak nak terima kasih",
           "tak payah",
           "tak payah terima kasih",
           "tak apa",
@@ -232,9 +322,75 @@
           "takpe terima kasih",
           "tak nak resit"
         ],
-        "model": "Tak nak resit.",
+        "model": "Tak nak.",
         "hint": "Say no thanks."
       }
     ]
-  }
+  },
+  "learnerGoal": "Learn how to ask for an item and understand the price.",
+  "comprehensionQuestions": [
+    {
+      "id": "shop-01-understand-01",
+      "prompt": "What is the shopper looking for?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Bottled water"
+        },
+        {
+          "id": "b",
+          "text": "A plastic bag"
+        },
+        {
+          "id": "c",
+          "text": "A receipt"
+        }
+      ],
+      "correctChoiceId": "a",
+      "explanation": "The shopper asks whether bottled water is available.",
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "shop-01-understand-02",
+      "prompt": "Where does the shopkeeper say the water is?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "At the back"
+        },
+        {
+          "id": "b",
+          "text": "By the entrance"
+        },
+        {
+          "id": "c",
+          "text": "Next to the counter"
+        }
+      ],
+      "correctChoiceId": "a",
+      "explanation": "The shopkeeper says it is over at the back.",
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "shop-01-understand-03",
+      "prompt": "What is the total price in the dialogue?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "RM 8.50"
+        },
+        {
+          "id": "b",
+          "text": "RM 8.00"
+        },
+        {
+          "id": "c",
+          "text": "RM 50.00"
+        }
+      ],
+      "correctChoiceId": "a",
+      "explanation": "The shopkeeper says the total is eight ringgit fifty sen.",
+      "reviewStatus": "draft"
+    }
+  ]
 }

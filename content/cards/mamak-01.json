@@ -62,8 +62,8 @@
     {
       "id": "line-6",
       "who": "you",
-      "ms": "Roti canai dua. Kuah dhal sikit.",
-      "en": "Two roti canai. A little dhal curry.",
+      "ms": "Roti canai dua. Kuah dhal lebih.",
+      "en": "Two roti canai. Extra dhal gravy.",
       "audio": {
         "normal": "/audio/mamak-01/line-6-normal.mp3",
         "slow": "/audio/mamak-01/line-6-slow.mp3"
@@ -112,31 +112,37 @@
   ],
   "chips": [
     {
+      "id": "mamak-01-comparison-001",
       "spoken": "nak",
       "formal": "hendak, mahu",
       "note": "daily speech vs. writing and speeches"
     },
     {
+      "id": "mamak-01-comparison-002",
       "spoken": "tu je",
       "formal": "itu saja",
       "note": "Teach the full form ‘Itu saja’ first, followed by the colloquial shortened form ‘Tu je’."
     },
     {
-      "spoken": "sikit",
-      "formal": "sedikit",
-      "note": "In this order, ‘kuah dhal sikit’ requests a small amount of dhal gravy with the roti canai. ‘Tambah dhal sikit’ is another natural alternative."
+      "id": "mamak-01-comparison-003",
+      "spoken": "lebih",
+      "formal": "lebih",
+      "note": "Roti canai is normally served with dhal by default; ‘kuah dhal lebih’ requests extra gravy rather than a standard serving. ‘Tambah dhal’ is another natural alternative."
     },
     {
+      "id": "mamak-01-comparison-004",
       "spoken": "ke",
       "formal": "atau",
       "note": "\"or\" in questions: makan sini ke tapau?"
     },
     {
+      "id": "mamak-01-comparison-005",
       "spoken": "tapau",
       "formal": "bungkus",
       "note": "takeaway, at stalls"
     },
     {
+      "id": "mamak-01-comparison-006",
       "spoken": "kira",
       "formal": "minta bil (contextual)",
       "note": "In this mamak exchange, ‘kira’ asks the staff to total the bill; it is not a universal synonym for bayar or minta bil."
@@ -149,6 +155,13 @@
       "audio": {
         "normal": "/audio/mamak-01/phrase-1-normal.mp3",
         "slow": "/audio/mamak-01/phrase-1-slow.mp3"
+      },
+      "id": "mamak-01-phrase-01",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
       }
     },
     {
@@ -157,6 +170,13 @@
       "audio": {
         "normal": "/audio/mamak-01/phrase-2-normal.mp3",
         "slow": "/audio/mamak-01/phrase-2-slow.mp3"
+      },
+      "id": "mamak-01-phrase-02",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
       }
     },
     {
@@ -165,19 +185,47 @@
       "audio": {
         "normal": "/audio/mamak-01/phrase-3-normal.mp3",
         "slow": "/audio/mamak-01/phrase-3-slow.mp3"
+      },
+      "id": "mamak-01-phrase-03",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
       }
     },
     {
-      "ms": "Kuah dhal sikit.",
-      "en": "A little dhal gravy."
+      "ms": "Kuah dhal lebih.",
+      "en": "Extra dhal gravy. Dhal is normally served by default; use this to request extra gravy.",
+      "id": "mamak-01-phrase-04",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
+      }
     },
     {
-      "ms": "Tambah dhal sikit.",
-      "en": "Add a little dhal gravy."
+      "ms": "Tambah dhal.",
+      "en": "Add more dhal gravy.",
+      "id": "mamak-01-phrase-05",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
+      }
     },
     {
       "ms": "Itu saja.",
-      "en": "That's all."
+      "en": "That's all.",
+      "id": "mamak-01-phrase-06",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
+      }
     },
     {
       "ms": "Tu je.",
@@ -185,6 +233,13 @@
       "audio": {
         "normal": "/audio/mamak-01/phrase-4-normal.mp3",
         "slow": "/audio/mamak-01/phrase-4-slow.mp3"
+      },
+      "id": "mamak-01-phrase-07",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
       }
     },
     {
@@ -193,31 +248,67 @@
       "audio": {
         "normal": "/audio/mamak-01/phrase-5-normal.mp3",
         "slow": "/audio/mamak-01/phrase-5-slow.mp3"
+      },
+      "id": "mamak-01-phrase-08",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
       }
     }
   ],
   "referencePhrases": [
     {
       "ms": "Bang, tolong kira.",
-      "en": "Please tally the bill. A contextual request; usage may vary by situation."
+      "en": "Please tally the bill. A contextual request; usage may vary by situation.",
+      "id": "mamak-01-reference-01",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
+      }
     },
     {
       "ms": "Tolong kira ni.",
-      "en": "Please total this. The bill is understood from context."
+      "en": "Please total this. The bill is understood from context.",
+      "id": "mamak-01-reference-02",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
+      }
     },
     {
       "ms": "Nak bil.",
-      "en": "I'd like the bill. A direct bill request; usage is not identical to ‘kira’."
+      "en": "I'd like the bill. A direct bill request; usage is not identical to ‘kira’.",
+      "id": "mamak-01-reference-03",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
+      }
     },
     {
       "ms": "Semua berapa?",
-      "en": "How much is everything? Asks for the total; it is not the same as requesting the bill."
+      "en": "How much is everything? Asks for the total; it is not the same as requesting the bill.",
+      "id": "mamak-01-reference-04",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": []
+      }
     }
   ],
   "task": {
     "goal": "Order a drink, choose dine-in or takeaway, order food, confirm that's all, and ask for the bill after eating.",
     "turns": [
       {
+        "id": "mamak-01-task-001",
         "type": "npc",
         "ms": "Nak minum apa?",
         "en": "What would you like to drink?",
@@ -230,13 +321,18 @@
           "teh tarik satu je"
         ],
         "keywords": [
-          ["teh"],
-          ["tarik"]
+          [
+            "teh"
+          ],
+          [
+            "tarik"
+          ]
         ],
         "model": "Teh tarik satu.",
         "hint": "Name the drink."
       },
       {
+        "id": "mamak-01-task-002",
         "type": "npc",
         "ms": "Makan sini ke tapau?",
         "en": "Eat here or takeaway?",
@@ -249,12 +345,17 @@
           "makan sini je"
         ],
         "keywords": [
-          ["sini", "tapau", "bungkus"]
+          [
+            "sini",
+            "tapau",
+            "bungkus"
+          ]
         ],
         "model": "Makan sini.",
         "hint": "Choose: eat here, or takeaway."
       },
       {
+        "id": "mamak-01-task-003",
         "type": "npc",
         "ms": "Nak makan apa?",
         "en": "What would you like to eat?",
@@ -263,16 +364,22 @@
           "roti canai dua",
           "dua roti canai",
           "nak roti canai dua",
+          "roti canai dua kuah dhal lebih",
           "roti canai dua kuah dhal sikit"
         ],
         "keywords": [
-          ["roti"],
-          ["canai"]
+          [
+            "roti"
+          ],
+          [
+            "canai"
+          ]
         ],
         "model": "Roti canai dua.",
         "hint": "Name the food."
       },
       {
+        "id": "mamak-01-task-004",
         "type": "npc",
         "ms": "Okey. Itu saja?",
         "en": "Okay. That's all?",
@@ -291,6 +398,7 @@
         "hint": "Say that's all."
       },
       {
+        "id": "mamak-01-task-005",
         "type": "prompt",
         "en": "You finished eating. Call the waiter and ask for the bill.",
         "accept": [
@@ -306,9 +414,19 @@
           "bang minta bil"
         ],
         "keywords": [
-          ["kira", "minta"],
-          ["bang", "ane", "bil"],
-          ["kira", "bil"]
+          [
+            "kira",
+            "minta"
+          ],
+          [
+            "bang",
+            "ane",
+            "bil"
+          ],
+          [
+            "kira",
+            "bil"
+          ]
         ],
         "model": "Bang, kira.",
         "hint": "Call the waiter and ask him to tally the bill."
@@ -320,5 +438,71 @@
       "en": "Seven ringgit altogether.",
       "audio": "/audio/mamak-01/line-10-normal.mp3"
     }
-  }
+  },
+  "learnerGoal": "Learn how to order a drink and food politely.",
+  "comprehensionQuestions": [
+    {
+      "id": "mamak-01-understand-01",
+      "prompt": "Which drink does the learner order?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Teh tarik"
+        },
+        {
+          "id": "b",
+          "text": "Coffee"
+        },
+        {
+          "id": "c",
+          "text": "Plain water"
+        }
+      ],
+      "correctChoiceId": "a",
+      "explanation": "The learner orders one teh tarik.",
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "mamak-01-understand-02",
+      "prompt": "What choice does the waiter ask about?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Eat here or take away"
+        },
+        {
+          "id": "b",
+          "text": "Pay by card or cash"
+        },
+        {
+          "id": "c",
+          "text": "Add sugar or milk"
+        }
+      ],
+      "correctChoiceId": "a",
+      "explanation": "The waiter asks whether the order is to eat here or take away.",
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "mamak-01-understand-03",
+      "prompt": "What does “Itu saja” communicate here?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "That is all"
+        },
+        {
+          "id": "b",
+          "text": "I want more"
+        },
+        {
+          "id": "c",
+          "text": "I want the bill now"
+        }
+      ],
+      "correctChoiceId": "a",
+      "explanation": "The learner is confirming that the order is finished.",
+      "reviewStatus": "draft"
+    }
+  ]
 }

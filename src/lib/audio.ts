@@ -1,7 +1,9 @@
-import type { Card } from '../types';
 import { appAssetPath } from './assets';
+import { fetchAudioOnDemand } from './audioCache';
 
 let currentAudio: HTMLAudioElement | null = null;
+let currentObjectUrl: string | null = null;
+let playbackSequence = 0;
 
 export type AudioPlayOptions = {
   src?: string;
@@ -12,133 +14,78 @@ export type AudioPlayOptions = {
   onError?: (err: unknown) => void;
 };
 
-/**
- * Stops any currently playing audio or speech synthesis.
- */
 export function stopAudio(): void {
+  playbackSequence += 1;
   if (currentAudio) {
     currentAudio.pause();
     currentAudio.currentTime = 0;
     currentAudio = null;
   }
-  if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-    window.speechSynthesis.cancel();
+  if (currentObjectUrl) {
+    URL.revokeObjectURL(currentObjectUrl);
+    currentObjectUrl = null;
   }
+  if (typeof window !== 'undefined' && 'speechSynthesis' in window) window.speechSynthesis.cancel();
 }
 
-/**
- * Fallback to Web Speech API (device voice)
- */
-function playSpeechSynthesis(
-  text: string,
-  speed: 'normal' | 'slow',
-  onStart?: (isFallback: boolean) => void,
-  onEnded?: () => void
-): void {
-  if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+function playSpeechSynthesis(text: string, speed: 'normal' | 'slow', onStart?: (fallback: boolean) => void, onEnded?: () => void, onError?: (err: unknown) => void): void {
+  if (typeof window === 'undefined' || !('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') {
+    onError?.(new Error('Speech playback is unavailable on this device.'));
     onEnded?.();
     return;
   }
-
   window.speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = 'ms-MY';
   utterance.rate = speed === 'slow' ? 0.55 : 0.95;
-
-  utterance.onstart = () => {
-    onStart?.(true);
-  };
-  utterance.onend = () => {
-    onEnded?.();
-  };
-  utterance.onerror = () => {
-    onEnded?.();
-  };
-
-  window.speechSynthesis.speak(utterance);
+  let voices: SpeechSynthesisVoice[];
+  try { voices = window.speechSynthesis.getVoices?.() ?? []; }
+  catch (error) { onError?.(error); return; }
+  const malayVoice = voices.find((voice) => voice.lang.toLowerCase().startsWith('ms'));
+  if (voices.length > 0 && !malayVoice) { onError?.(new Error('No Malay device voice is available.')); return; }
+  if (malayVoice) utterance.voice = malayVoice;
+  utterance.onstart = () => onStart?.(true);
+  utterance.onend = () => onEnded?.();
+  utterance.onerror = (event) => { onError?.(event); onEnded?.(); };
+  try { window.speechSynthesis.speak(utterance); } catch (error) { onError?.(error); }
 }
 
-/**
- * Plays audio with automatic fallback to Web Speech API.
- */
-export function playAudio({
-  src,
-  fallbackText,
-  speed = 'normal',
-  onStart,
-  onEnded,
-  onError
-}: AudioPlayOptions): void {
+/** Fetch on learner request, cache opportunistically, and use a device voice on failure. */
+export function playAudio({ src, fallbackText, speed = 'normal', onStart, onEnded, onError }: AudioPlayOptions): void {
   stopAudio();
-
-  if (!src) {
-    playSpeechSynthesis(fallbackText, speed, onStart, onEnded);
-    return;
-  }
-
-  const audio = new Audio(appAssetPath(src));
-  currentAudio = audio;
-
-  // Normal playback speed is 1.0, slow can also slow down playbackRate if needed
-  if (speed === 'slow') {
-    audio.playbackRate = 0.85;
-  }
-
-  let started = false;
-
-  audio.onplay = () => {
-    started = true;
-    onStart?.(false);
-  };
-
-  audio.onended = () => {
-    currentAudio = null;
-    onEnded?.();
-  };
-
-  audio.onerror = () => {
-    currentAudio = null;
-    // Failed to load or 404: fall back to device voice
-    playSpeechSynthesis(fallbackText, speed, onStart, onEnded);
-  };
-
-  audio.play().catch((err) => {
-    // If play() was prevented (e.g. autoplay policy or 404 error)
-    if (!started) {
+  if (!src) { playSpeechSynthesis(fallbackText, speed, onStart, onEnded, onError); return; }
+  const sequence = playbackSequence;
+  void (async () => {
+    let objectUrl: string | undefined;
+    try {
+      const response = await fetchAudioOnDemand(appAssetPath(src));
+      if (!response.ok) throw new Error(`Audio request failed (${response.status}).`);
+      const blob = await response.blob();
+      if (sequence !== playbackSequence) return;
+      objectUrl = URL.createObjectURL(blob);
+      currentObjectUrl = objectUrl;
+      const audio = new Audio(objectUrl);
+      currentAudio = audio;
+      if (speed === 'slow') audio.playbackRate = 0.85;
+      let started = false;
+      const releaseUrl = () => {
+        if (objectUrl && currentObjectUrl === objectUrl) { URL.revokeObjectURL(objectUrl); currentObjectUrl = null; }
+      };
+      audio.onplay = () => { started = true; onStart?.(false); };
+      audio.onended = () => { currentAudio = null; releaseUrl(); onEnded?.(); };
+      audio.onerror = () => {
+        currentAudio = null; releaseUrl();
+        playSpeechSynthesis(fallbackText, speed, onStart, onEnded, onError);
+      };
+      await audio.play();
+      // Some test/browser implementations resolve play() without dispatching `play`.
+      if (!started && sequence === playbackSequence && audio.paused === false) onStart?.(false);
+    } catch {
+      if (sequence !== playbackSequence) return;
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
+      if (currentObjectUrl === objectUrl) currentObjectUrl = null;
       currentAudio = null;
-      playSpeechSynthesis(fallbackText, speed, onStart, onEnded);
-    } else {
-      onError?.(err);
+      playSpeechSynthesis(fallbackText, speed, onStart, onEnded, onError);
     }
-  });
-}
-
-/**
- * Pre-caches all audio files for a given card into the browser cache / SW
- */
-export function precacheCardAudio(card: Card): void {
-  if (typeof window === 'undefined' || !('caches' in window)) return;
-
-  const urls: string[] = [];
-  card.dialogue.forEach((line) => {
-    if (line.audio?.normal) urls.push(line.audio.normal);
-    if (line.audio?.slow) urls.push(line.audio.slow);
-  });
-  card.phrases.forEach((phrase) => {
-    if (phrase.audio?.normal) urls.push(phrase.audio.normal);
-    if (phrase.audio?.slow) urls.push(phrase.audio.slow);
-  });
-  card.task.turns.forEach((turn) => {
-    if (turn.type === 'npc' && turn.audio) urls.push(turn.audio);
-  });
-  if (card.task.conclusion?.audio) {
-    urls.push(card.task.conclusion.audio);
-  }
-
-  urls.forEach((url) => {
-    // Trigger lightweight fetch so service worker or HTTP cache caches 200 responses
-    fetch(appAssetPath(url), { method: 'GET', mode: 'no-cors' }).catch(() => {
-      // Audio might not exist yet during draft, silently ignore
-    });
-  });
+  })();
 }

@@ -14,6 +14,8 @@ type FlashcardsHomeProps = {
   onActiveTabChange: (tab: BrowseTab) => void;
   onSelectCard: (cardId: string, sourceTab: BrowseTab) => void;
   onOpenSettings: () => void;
+  onOpenSurvival: () => void;
+  onOpenPhrasebook: () => void;
 };
 
 function SceneStatus({ card, progress, isRecommended }: { card: Card; progress: ProgressMap; isRecommended: boolean }) {
@@ -23,7 +25,7 @@ function SceneStatus({ card, progress, isRecommended }: { card: Card; progress: 
   return <span id={`scenario-status-${card.id}`} className={`flash-status ${stateClass}`}><i />{labels[status]}</span>;
 }
 
-export const FlashcardsHome: React.FC<FlashcardsHomeProps> = ({ cards, progress, initialTab, onActiveTabChange, onSelectCard, onOpenSettings }) => {
+export const FlashcardsHome: React.FC<FlashcardsHomeProps> = ({ cards, progress, initialTab, onActiveTabChange, onSelectCard, onOpenSettings, onOpenSurvival, onOpenPhrasebook }) => {
   const [activeTab, setActiveTab] = useState<BrowseTab>(initialTab);
   const selectTab = (tab: BrowseTab) => {
     setActiveTab(tab);
@@ -79,6 +81,12 @@ export const FlashcardsHome: React.FC<FlashcardsHomeProps> = ({ cards, progress,
           </div>
         </section>
 
+        <button type="button" className="survival-entry" onClick={onOpenSurvival}>
+          <span className="survival-entry-mark" aria-hidden="true">Aa</span>
+          <span><strong>Survival Malay</strong><small>A quick phrase starter · about 3–5 minutes</small></span>
+          <i aria-hidden="true">→</i>
+        </button>
+
         <button
           type="button"
           className="flash-progress path-resume"
@@ -124,7 +132,7 @@ export const FlashcardsHome: React.FC<FlashcardsHomeProps> = ({ cards, progress,
       <nav className="app-tabbar flash-tabbar" aria-label="Main navigation">
         <button type="button" className={activeTab === 'path' ? 'tab-active' : ''} onClick={() => selectTab('path')} aria-current={activeTab === 'path' ? 'page' : undefined}><span>⌁</span><small>Path</small></button>
         <button type="button" className={activeTab === 'explore' ? 'tab-active' : ''} onClick={() => selectTab('explore')} aria-current={activeTab === 'explore' ? 'page' : undefined}><span>▦</span><small>Explore</small></button>
-        <button type="button" className="tab-later" disabled aria-label="Phrasebook, planned for a later update"><span>♡</span><small>Phrasebook</small></button>
+        <button type="button" onClick={onOpenPhrasebook} aria-label="Open saved phrasebook"><span>♡</span><small>Phrasebook</small></button>
       </nav>
     </div>
   </main>;

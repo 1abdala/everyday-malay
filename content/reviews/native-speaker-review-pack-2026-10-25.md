@@ -1442,9 +1442,13 @@ These flags identify expressions that need a context-sensitive judgment. They ar
 ### Shop Counter (`shop-01`)
 
 - **Primary declines and retained alternatives:** “Tak nak plastik.” and “Tak nak resit.” are the current core forms; the task also retains “tak payah”, “tak apa”, and “takpe” alternatives. Are these clear and appropriate for declining each item in this exchange?
+  - *Reviewer feedback applied:* Teach and accept concise declines “Tak nak” and “Takpe, tak nak” for declining both plastic bags and receipts.
 - **“Kat belakang sana.” → “Yes. Over at the back.”** Does the English preserve the intended location and emphasis of `sana`?
 - **Payment scope:** The current phrase/task teaches card payment only. Does the dialogue, phrase list, translation, and task objective consistently represent that scope?
 - **Phrase alignment:** Review the current core list (“Ada plastik tak?”, “Tak nak plastik.”, “Boleh bayar guna kad?”, “Nak resit.”, “Tak nak resit.”) against the dialogue and task. “Ada plastik tak?” and “Nak resit.” are standalone useful expressions, not turns currently spoken in the scripted exchange.
+- **Bottled-water request & Total amount:**
+  - *Reviewer feedback applied:* Updated bottled-water request to “Maaf, ada air mineral tak?”.
+  - *Reviewer feedback applied:* Updated shop total dialogue to standard spelling: “Semuanya lapan ringgit lima puluh sen.”.
 
 ### Mamak Stall (`mamak-01`)
 
@@ -1470,6 +1474,7 @@ The outcomes below are **code-derived expectations from the current matcher conf
 | `bang minta` | FAIL — matches the first two groups but lacks `kira` or `bil` for the final group. | Intended fail as incomplete. |
 | `nak makan apa` | FAIL — does not satisfy the keyword groups. | Should fail as unrelated to the bill request. |
 - **Dhal requests:** The core list contains “Kuah dhal sikit.” and the native-speaker-suggested alternative “Tambah dhal sikit.” Review the intended amount and whether the second wording has the intended meaning in this food-order context.
+  - *Reviewer feedback applied:* Replaced “Kuah dhal sikit” with “Kuah dhal lebih” for asking for extra dhal gravy. Clarified in translations and notes that dhal is normally served by default with roti canai and this phrase requests extra gravy.
 - **“Itu saja” / “Tu je”:** The current dialogue and model use “Itu saja.” first; the key phrase list places the colloquial shortened form “Tu je.” second. Confirm that this beginner-first ordering is clear and that “Tu je” is appropriately labelled as colloquial.
 - **Variety metadata:** Is “Klang Valley / West Coast Colloquial Spoken Malay” accurate and not overly broad for all lines and task answers in this scenario?
 

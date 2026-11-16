@@ -4,7 +4,11 @@ import {
   saveSettings,
   generateProgressSummary,
   getFailedAnswers,
-  clearAllData
+  clearAllData,
+  exportLocalData,
+  loadSavedPhrases,
+  removeSavedPhrase,
+  isPersistentStorageAvailable
 } from '../lib/storage';
 
 type SettingsScreenProps = {
@@ -12,6 +16,7 @@ type SettingsScreenProps = {
   onSettingsChange: (newSettings: UserSettings) => void;
   onClose: () => void;
   onDataCleared: () => void;
+  onOpenOrientation: () => void;
   totalCards: number;
 };
 
@@ -20,9 +25,12 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
   onSettingsChange,
   onClose,
   onDataCleared,
+  onOpenOrientation,
   totalCards
 }) => {
   const [copyFeedback, setCopyFeedback] = useState<string | null>(null);
+  const [savedPhrases, setSavedPhrases] = useState(loadSavedPhrases);
+  const [storageAvailable] = useState(isPersistentStorageAvailable);
 
   const handleSpeedChange = (speed: 'normal' | 'slow') => {
     const updated = { ...settings, defaultSpeed: speed };
@@ -59,12 +67,26 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
     setTimeout(() => setCopyFeedback(null), 4000);
   };
 
+  const handleDownloadData = () => {
+    const json = JSON.stringify(exportLocalData(), null, 2);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `everyday-malay-data-${new Date().toISOString().slice(0, 10)}.json`;
+    link.click();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    setCopyFeedback('Your local data export has been downloaded. Keep the file somewhere private.');
+    setTimeout(() => setCopyFeedback(null), 4000);
+  };
+
   const handleClearData = () => {
     const confirmed = window.confirm(
-      'Are you sure you want to clear all progress, failed answers, and settings? This cannot be undone.'
+      'Delete all locally stored scenario progress, XP, role-play drafts, failed answers, saved phrases, onboarding state, and settings? This cannot be undone.'
     );
     if (confirmed) {
       clearAllData();
+      setSavedPhrases([]);
       onDataCleared();
       setCopyFeedback('All local data has been cleared.');
       setTimeout(() => setCopyFeedback(null), 3000);
@@ -90,6 +112,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
           {copyFeedback}
         </div>
       )}
+      {!storageAvailable && <p className="storage-warning" role="alert">This browser cannot save data reliably right now. Progress may only remain until this page closes.</p>}
 
       {/* Preferences */}
       <div className="settings-group">
@@ -134,6 +157,21 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
 
       {/* Progress & Sharing */}
       <div className="settings-group">
+        <h3 className="settings-group-title">Saved for review</h3>
+        {savedPhrases.length === 0 ? <p className="setting-desc">Save a phrase from Key Phrases to keep it here for quick practice.</p> : (
+          <div className="saved-phrase-list">
+            {savedPhrases.map((phrase) => <article className="saved-phrase" key={phrase.id}>
+              <strong>{phrase.malay}</strong><span>{phrase.english}</span>
+              <button type="button" className="btn-ghost" aria-label={`Remove saved phrase ${phrase.malay}`} onClick={() => {
+                removeSavedPhrase(phrase.id);
+                setSavedPhrases((current) => current.filter((item) => item.id !== phrase.id));
+              }}>Remove</button>
+            </article>)}
+          </div>
+        )}
+      </div>
+
+      <div className="settings-group">
         <h3 className="settings-group-title">Feedback & Progress</h3>
 
         <div>
@@ -169,8 +207,21 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
       <div className="settings-group">
         <h3 className="settings-group-title">Privacy & Storage</h3>
         <p className="setting-desc">
-          Everyday Malay stores 100% of your progress locally on this device. No trackers, no accounts, and no data is sent to any server.
+          Everything below stays in this browser; the app does not upload or sync it:
         </p>
+        <ul className="privacy-data-list"><li>Scenario progress and completion</li><li>Unfinished role-play drafts</li><li>Failed-answer logs and local activity events</li><li>Saved phrases</li><li>XP and onboarding/starter completion</li><li>Settings</li></ul>
+        <p className="setting-desc">Clearing browser data, changing browser or device, or using another site origin can make saved data unavailable. Export a private copy first if you want a backup.</p>
+
+        <button type="button" className="btn-secondary" style={{ width: '100%', marginBottom: 8 }} onClick={handleDownloadData}>
+          Download my local data (JSON)
+        </button>
+        <p className="setting-desc" style={{ marginTop: 0 }}>
+          The export includes progress, XP, role-play drafts, failed answers, activity events, preferences, saved phrases, and onboarding status. It may contain your practice answers; store it privately.
+        </p>
+
+        <button type="button" className="btn-secondary" style={{ width: '100%', marginBottom: 12 }} onClick={onOpenOrientation}>
+          Read the getting-started guide
+        </button>
 
         <button
           type="button"

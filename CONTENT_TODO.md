@@ -10,6 +10,7 @@ All cards are currently marked as `"draft"`. This document tracks specific Malay
 - [ ] **Address term:** Verify whether `Bang` is always suitable or if `Boss`, `Ane`, `Abang`, or `Kak` should be noted.
 - [ ] **Asking for the bill:** Verify whether `Bang, kira.` is the prevailing phrase or if `Berapa semua?` / `Kira bang` / `Minta bil` are preferred in certain mamak settings.
 - [ ] **Realistic pricing:** Verify whether 1 teh tarik + 2 roti canai currently costs around RM 7.00 (`Semua tujuh ringgit.`).
+- [x] **Dhal gravy request:** Verified with native reviewer. Replaced `Kuah dhal sikit` with `Kuah dhal lebih` for asking for extra dhal gravy, noting that dhal is normally served by default with roti canai.
 
 ---
 
@@ -20,7 +21,8 @@ All cards are currently marked as `"draft"`. This document tracks specific Malay
 ---
 
 ## Shop Counter Card (`shop-01`)
-- [ ] **Opening inquiry:** Check whether `Maaf, ada air mineral?` sounds overly formal compared to `Bang, air mineral ada?` or `Kak, ada air mineral?`.
+- [x] **Opening inquiry:** Verified with native reviewer. Updated bottled-water request to `Maaf, ada air mineral tak?`.
 - [ ] **Payment phrasing:** Compare `Boleh bayar guna kad?` vs `Boleh bayar pakai kad?` vs `Kad boleh?`.
 - [ ] **Plastic bags:** Check whether cashiers still say `Nak beg plastik?` given the plastic bag charges and bans in certain states (e.g. Selangor / KL).
-- [ ] **Declining items:** Confirm natural brevity of `Tak payah.` vs `Tak apa.` vs `Tak nak, terima kasih.`.
+- [x] **Declining items:** Verified with native reviewer. Taught and accepted `Tak nak` and `Takpe, tak nak` for declining both plastic bags and receipts.
+- [x] **Total amount:** Updated cashier dialogue to standard spelling: `Semuanya lapan ringgit lima puluh sen.`.

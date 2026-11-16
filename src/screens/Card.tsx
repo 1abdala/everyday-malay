@@ -1,10 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
-import type { Card as CardType, ProgressMap, UserSettings } from '../types';
-import { precacheCardAudio, stopAudio } from '../lib/audio';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import type { Card as CardType, ProgressMap, TaskDraftProgress, UserSettings } from '../types';
+import { stopAudio } from '../lib/audio';
 import { completeScenario, loadRewardProgress, saveCardProgress } from '../lib/storage';
 import { track } from '../lib/track';
 import { StepDots } from '../components/StepDots';
 import { DialogueLine } from '../components/DialogueLine';
+import { PlayAllButton } from '../components/PlayAllButton';
+import { ComprehensionCheck } from '../components/ComprehensionCheck';
 import { ChipRow } from '../components/ChipRow';
 import { PhraseList } from '../components/PhraseList';
 import { TaskTest, type TaskSummaryResult } from '../components/TaskTest';
@@ -22,7 +24,7 @@ type CardScreenProps = {
   onProgressUpdated: () => void;
 };
 
-const STEP_NAMES = ['Scene', 'Listen', 'Say it like locals', 'Key phrases', 'Task test', 'Results'];
+const STEP_NAMES = ['Scene', 'Listen', 'Understand', 'Key phrases', 'Task test', 'Results'];
 
 export const CardScreen: React.FC<CardScreenProps> = ({
   card,
@@ -59,9 +61,13 @@ export const CardScreen: React.FC<CardScreenProps> = ({
   const [xpAwarded, setXpAwarded] = useState(0);
   const [totalXp, setTotalXp] = useState(() => loadRewardProgress().totalXp);
 
+  const saveTaskDraft = useCallback((taskDraft: TaskDraftProgress) => {
+    saveCardProgress(card.id, { taskDraft });
+    onProgressUpdated();
+  }, [card.id, onProgressUpdated]);
+
   // Pre-cache audio & track card opened
   useEffect(() => {
-    precacheCardAudio(card);
     track('card_opened', { cardId: card.id });
     saveCardProgress(card.id, { started: true });
     onProgressUpdated();
@@ -98,6 +104,7 @@ export const CardScreen: React.FC<CardScreenProps> = ({
     setTaskResult(summary);
     const completion = completeScenario(card.id, {
       lastStepIndex: 5,
+      taskDraft: undefined,
       attempts: (existingProg?.attempts || 0) + 1,
       bestTask: {
         turns: summary.turns,
@@ -116,16 +123,22 @@ export const CardScreen: React.FC<CardScreenProps> = ({
     moveToStep(5, false, true);
   };
 
-  const retryTask = () => {
+  const resumeTask = () => {
+    moveToStep(4, true, true);
+  };
+
+  const restartScenario = () => {
+    saveCardProgress(card.id, { taskDraft: undefined });
     setTaskResult(null);
     setXpAwarded(0);
     setTotalXp(loadRewardProgress().totalXp);
     setTaskRun((run) => run + 1);
     completionGuardRef.current = false;
-    moveToStep(4, true, true);
+    moveToStep(0, true, true);
+    onProgressUpdated();
   };
 
-  const continueLabels = ['Start Dialogue →', 'Say It Like Locals →', 'Learn Key Phrases →', 'Begin Task Test →'];
+  const continueLabels = ['Start Dialogue →', 'Check Understanding →', 'Learn Key Phrases →', 'Begin Role-play →'];
 
   return (
     <div className="card-flow-container">
@@ -159,6 +172,7 @@ export const CardScreen: React.FC<CardScreenProps> = ({
           <div className="step-header">
             <span className="step-badge">Step 1 of 6</span>
             <h2 className="step-title">{card.title}</h2>
+            <p className="scene-learner-goal">{card.learnerGoal}</p>
           </div>
 
           <div className="scene-card-hero">
@@ -191,28 +205,34 @@ export const CardScreen: React.FC<CardScreenProps> = ({
               />
               <span>Show English</span>
             </label>
+            <PlayAllButton lines={card.dialogue} scenarioId={card.id} />
           </div>
 
           <div className="chat-thread">
             {card.dialogue.map((line) => (
-              <DialogueLine key={line.id} line={line} showEnglish={showEnglish} />
+              <DialogueLine key={line.id} line={line} scenarioId={card.id} showEnglish={showEnglish} />
             ))}
           </div>
 
         </section>
 
-        {/* Step 2: Chips */}
-        <section className="step-slide" hidden={currentStep !== 2} aria-label="Step 3 of 6: Say it like locals">
+        {/* Step 2: Understand */}
+        <section className="step-slide" hidden={currentStep !== 2} aria-label="Step 3 of 6: Understand">
           <div className="step-header">
             <span className="step-badge">Step 3 of 6</span>
-            <h2 className="step-title">Say It Like Locals</h2>
+            <h2 className="step-title">Understand the conversation</h2>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '0.92rem' }}>
-              Notice how everyday spoken Malay drops formal syllables and uses conversational markers.
+              Check what happened in the scene before practising your own responses. Retry any question; this check does not block the lesson.
             </p>
           </div>
-
-          <ChipRow chips={card.chips} />
-
+          <ComprehensionCheck
+            questions={card.comprehensionQuestions ?? []}
+            onResult={(questionId, correct) => {
+              const prior = progress[card.id]?.comprehensionResults ?? {};
+              saveCardProgress(card.id, { comprehensionResults: { ...prior, [questionId]: correct } });
+              onProgressUpdated();
+            }}
+          />
         </section>
 
         {/* Step 3: Key Phrases */}
@@ -221,11 +241,12 @@ export const CardScreen: React.FC<CardScreenProps> = ({
             <span className="step-badge">Step 4 of 6</span>
             <h2 className="step-title">Key Phrases for the Task</h2>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '0.92rem' }}>
-              Listen and practice saying these out loud before your scored role-play.
+              Listen to useful phrases. Spoken/formal comparisons are contextual, not universal rules.
             </p>
           </div>
 
-          <PhraseList phrases={card.phrases} />
+          <ChipRow chips={card.chips} />
+          <PhraseList phrases={card.phrases} scenarioId={card.id} />
 
         </section>
 
@@ -241,6 +262,8 @@ export const CardScreen: React.FC<CardScreenProps> = ({
             card={card}
             onComplete={handleTaskComplete}
             isActive={currentStep === 4}
+            initialDraft={taskRun === 0 ? existingProg?.taskDraft : undefined}
+            onDraftChange={saveTaskDraft}
           />
         </section>
 
@@ -257,7 +280,8 @@ export const CardScreen: React.FC<CardScreenProps> = ({
             taskGoal={card.task.goal}
             xpAwarded={xpAwarded}
             totalXp={totalXp}
-            onRetryTask={retryTask}
+            onResumeTask={resumeTask}
+            onRestartScenario={restartScenario}
             onContinuePath={onContinuePath}
             onBackToDeck={onBackToDeck}
             returnToBrowseLabel={returnToBrowseLabel}

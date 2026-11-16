@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import type { Card, TaskTurn } from '../types';
+import type { Card, TaskDraftProgress, TaskTurn } from '../types';
 import { matchTurn } from '../lib/matcher';
 import { logFailedAnswer } from '../lib/storage';
 import { track } from '../lib/track';
@@ -20,6 +20,8 @@ type TaskTestProps = {
   card: Card;
   onComplete: (result: TaskSummaryResult) => void;
   isActive: boolean;
+  initialDraft?: TaskDraftProgress;
+  onDraftChange?: (draft: TaskDraftProgress) => void;
 };
 
 type TurnState = {
@@ -28,43 +30,78 @@ type TurnState = {
   nearMiss: boolean;
 };
 
-export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete, isActive }) => {
-  const [currentTurnIdx, setCurrentTurnIdx] = useState(0);
-  const [inputMode, setInputMode] = useState<'type' | 'wordbank'>('type');
-  const [typedInput, setTypedInput] = useState('');
-  const [selectedWordTiles, setSelectedWordTiles] = useState<{ id: string; word: string }[]>([]);
+export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete, isActive, initialDraft, onDraftChange }) => {
+  const validInitialDraft = initialDraft
+    && Number.isInteger(initialDraft.turnIndex)
+    && initialDraft.turnIndex >= 0
+    && initialDraft.turnIndex < card.task.turns.length
+    && Array.isArray(initialDraft.selectedWordTiles)
+    && Array.isArray(initialDraft.phrasesToRevisit)
+    ? initialDraft
+    : undefined;
+  const [currentTurnIdx, setCurrentTurnIdx] = useState(validInitialDraft?.turnIndex ?? 0);
+  const [inputMode, setInputMode] = useState<'type' | 'wordbank'>(validInitialDraft?.inputMode ?? 'wordbank');
+  const [typedInput, setTypedInput] = useState(validInitialDraft?.typedInput ?? '');
+  const [selectedWordTiles, setSelectedWordTiles] = useState<{ id: string; word: string }[]>(validInitialDraft?.selectedWordTiles ?? []);
 
   // Turn state tracking
-  const [turnState, setTurnState] = useState<TurnState>({
+  const [turnState, setTurnState] = useState<TurnState>(validInitialDraft?.turnState ?? {
     status: 'answering',
     attempts: 0,
     nearMiss: false
   });
 
   // Task accumulator stats
-  const [firstTryCount, setFirstTryCount] = useState(0);
-  const [withHintCount, setWithHintCount] = useState(0);
-  const [assistedCount, setAssistedCount] = useState(0);
-  const [totalAttempts, setTotalAttempts] = useState(0);
-  const [phrasesToRevisit, setPhrasesToRevisit] = useState<string[]>([]);
-  const [isConcluding, setIsConcluding] = useState(false);
+  const [firstTryCount, setFirstTryCount] = useState(validInitialDraft?.firstTryCount ?? 0);
+  const [withHintCount, setWithHintCount] = useState(validInitialDraft?.withHintCount ?? 0);
+  const [assistedCount, setAssistedCount] = useState(validInitialDraft?.assistedCount ?? 0);
+  const [totalAttempts, setTotalAttempts] = useState(validInitialDraft?.totalAttempts ?? 0);
+  const [phrasesToRevisit, setPhrasesToRevisit] = useState<string[]>(validInitialDraft?.phrasesToRevisit ?? []);
+  const [isConcluding, setIsConcluding] = useState(validInitialDraft?.isConcluding ?? false);
+  const [assistedReconstructed, setAssistedReconstructed] = useState(validInitialDraft?.assistedReconstructed ?? false);
+  const [reconstructionError, setReconstructionError] = useState(false);
+  const [audioUnavailable, setAudioUnavailable] = useState(false);
   const completionSentRef = useRef(false);
+  const startedTrackedRef = useRef(false);
   const typedInputRef = useRef<HTMLInputElement>(null);
 
   const currentTurn: TaskTurn | undefined = card.task.turns[currentTurnIdx];
 
   // Track task started on first load
   useEffect(() => {
-    track('task_started', { cardId: card.id });
-  }, [card.id]);
+    if (isActive && !startedTrackedRef.current) {
+      startedTrackedRef.current = true;
+      track('task_started', { cardId: card.id });
+    }
+  }, [card.id, isActive]);
+
+  useEffect(() => {
+    if (!isActive || !onDraftChange) return;
+    onDraftChange({
+      turnIndex: currentTurnIdx,
+      inputMode,
+      typedInput,
+      selectedWordTiles,
+      turnState,
+      firstTryCount,
+      withHintCount,
+      assistedCount,
+      totalAttempts,
+      phrasesToRevisit,
+      isConcluding,
+      assistedReconstructed
+    });
+  }, [isActive, onDraftChange, currentTurnIdx, inputMode, typedInput, selectedWordTiles, turnState, firstTryCount, withHintCount, assistedCount, totalAttempts, phrasesToRevisit, isConcluding, assistedReconstructed]);
 
   // Autoplay NPC audio for current turn if user has interacted
   useEffect(() => {
     if (isActive && currentTurn?.type === 'npc' && currentTurn.audio) {
+      setAudioUnavailable(false);
       playAudio({
         src: currentTurn.audio,
         fallbackText: currentTurn.ms,
-        speed: 'normal'
+        speed: 'normal',
+        onError: () => setAudioUnavailable(true)
       });
     }
   }, [currentTurnIdx, currentTurn, isActive]);
@@ -84,7 +121,18 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete, isActive }
 
   const handleCheckAnswer = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
-    if (!currentAnswer.trim() || turnState.status === 'passed' || turnState.status === 'assisted') {
+    if (!currentAnswer.trim() || turnState.status === 'passed' || (turnState.status === 'assisted' && assistedReconstructed)) {
+      return;
+    }
+
+    if (turnState.status === 'assisted') {
+      const reconstruction = matchTurn(currentAnswer, { ...currentTurn, accept: [currentTurn.model], keywords: undefined });
+      if (reconstruction.pass) {
+        setAssistedReconstructed(true);
+        setReconstructionError(false);
+      } else {
+        setReconstructionError(true);
+      }
       return;
     }
 
@@ -130,6 +178,11 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete, isActive }
           attempts: nextAttempt,
           nearMiss: false
         });
+        setTypedInput('');
+        setSelectedWordTiles([]);
+        setInputMode('wordbank');
+        setAssistedReconstructed(false);
+        setReconstructionError(false);
       }
     }
   };
@@ -174,6 +227,8 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete, isActive }
     } else {
       // Next turn
       setCurrentTurnIdx((prev) => prev + 1);
+      // Start with blocks on the first turn, then invite recall on later turns.
+      setInputMode('type');
       setTypedInput('');
       setSelectedWordTiles([]);
       setTurnState({
@@ -181,6 +236,8 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete, isActive }
         attempts: 0,
         nearMiss: false
       });
+      setAssistedReconstructed(false);
+      setReconstructionError(false);
     }
   };
 
@@ -190,6 +247,7 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete, isActive }
       <div className="task-goal-box">
         <div className="task-goal-title">Role-play Goal</div>
         <div style={{ fontWeight: 600, color: 'var(--color-text)' }}>{card.task.goal}</div>
+        <p className="task-scaffold-note">Start by arranging the word blocks. Switch to Type when you’re ready to try from memory.</p>
       </div>
 
       {/* Main turn card */}
@@ -211,6 +269,7 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete, isActive }
             {currentTurn.audio && (
               <div style={{ marginTop: '8px' }}>
                 <AudioButtons
+                  scenarioId={card.id}
                   normalSrc={currentTurn.audio}
                   textToSpeak={currentTurn.ms}
                 />
@@ -223,6 +282,11 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete, isActive }
               Instruction:
             </div>
             <div className="turn-dialogue-prompt">{currentTurn.en}</div>
+          </div>
+        )}
+        {audioUnavailable && (
+          <div role="status" className="device-voice-tag" style={{ marginTop: 8 }}>
+            Audio unavailable on this device.
           </div>
         )}
 
@@ -259,7 +323,7 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete, isActive }
               placeholder="Type your response in Malay..."
               value={typedInput}
               onChange={(e) => setTypedInput(e.target.value)}
-              disabled={turnState.status === 'passed' || turnState.status === 'assisted'}
+              disabled={turnState.status === 'passed' || (turnState.status === 'assisted' && assistedReconstructed)}
               autoComplete="off"
               autoCorrect="off"
               autoCapitalize="off"
@@ -273,7 +337,7 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete, isActive }
               modelAnswer={currentTurn.model}
               selectedWords={selectedWordTiles}
               onSelectedWordsChange={setSelectedWordTiles}
-              disabled={turnState.status === 'passed' || turnState.status === 'assisted'}
+              disabled={turnState.status === 'passed' || (turnState.status === 'assisted' && assistedReconstructed)}
             />
           )}
 
@@ -300,8 +364,11 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete, isActive }
               <span style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--color-primary)' }}>
                 {currentTurn.model}
               </span>
+              <span>{assistedReconstructed ? 'Good reconstruction. You can continue.' : 'Now rebuild the response with the word blocks, or type it from memory.'}</span>
             </div>
           )}
+
+          {reconstructionError && <div className="feedback-box feedback-hint" role="status">Build the suggested response shown above before continuing.</div>}
 
           {/* Conclusion display if last turn was passed and conclusion exists */}
           {isConcluding && card.task.conclusion && (
@@ -316,6 +383,7 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete, isActive }
               {card.task.conclusion.audio && (
                 <div style={{ marginTop: '6px' }}>
                   <AudioButtons
+                    scenarioId={card.id}
                     normalSrc={card.task.conclusion.audio}
                     textToSpeak={card.task.conclusion.ms}
                   />
@@ -325,14 +393,14 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete, isActive }
           )}
 
           {/* Action buttons */}
-          {turnState.status === 'answering' || turnState.status === 'hint' ? (
+          {turnState.status === 'answering' || turnState.status === 'hint' || (turnState.status === 'assisted' && !assistedReconstructed) ? (
             <button
               type="submit"
               className="btn-primary"
               style={{ width: '100%', marginTop: '4px' }}
               disabled={!currentAnswer.trim()}
             >
-              Check answer
+              {turnState.status === 'assisted' ? 'Rebuild response' : 'Check answer'}
             </button>
           ) : (
             <button

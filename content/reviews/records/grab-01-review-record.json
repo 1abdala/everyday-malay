@@ -1,0 +1,842 @@
+{
+  "scenarioId": "grab-01",
+  "sourceFile": "content/cards/grab-01.json",
+  "reviewStatus": "draft",
+  "reviewer": null,
+  "reviewedAt": null,
+  "lineReviews": [
+    {
+      "lineId": "line-1",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-2",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-3",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-4",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-5",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-6",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-7",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-8",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-9",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    }
+  ],
+  "phraseReviews": [
+    {
+      "phraseId": "grab-01-phrase-01",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "grab-01-phrase-02",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "grab-01-phrase-03",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "grab-01-phrase-04",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "grab-01-phrase-05",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    }
+  ],
+  "glossReviews": [],
+  "taskAlternativeReviews": [
+    {
+      "taskId": "grab-01-task-001",
+      "alternativeId": "grab-01-task-001-alt-001",
+      "response": "ya",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "grab-01-task-001",
+      "alternativeId": "grab-01-task-001-alt-002",
+      "response": "ya betul",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "grab-01-task-001",
+      "alternativeId": "grab-01-task-001-alt-003",
+      "response": "betul",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "grab-01-task-001",
+      "alternativeId": "grab-01-task-001-alt-004",
+      "response": "ya betul klcc",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "grab-01-task-002",
+      "alternativeId": "grab-01-task-002-alt-001",
+      "response": "boleh pasang aircond",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "grab-01-task-002",
+      "alternativeId": "grab-01-task-002-alt-002",
+      "response": "boleh pasang aircon",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "grab-01-task-002",
+      "alternativeId": "grab-01-task-002-alt-003",
+      "response": "boleh buka aircond",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "grab-01-task-002",
+      "alternativeId": "grab-01-task-002-alt-004",
+      "response": "boleh pasang aircond tak",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "grab-01-task-003",
+      "alternativeId": "grab-01-task-003-alt-001",
+      "response": "ikut gps je",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "grab-01-task-003",
+      "alternativeId": "grab-01-task-003-alt-002",
+      "response": "ikut gps",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "grab-01-task-003",
+      "alternativeId": "grab-01-task-003-alt-003",
+      "response": "ikut gps je bang",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "grab-01-task-003",
+      "alternativeId": "grab-01-task-003-alt-004",
+      "response": "ikut gps je ya",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "grab-01-task-004",
+      "alternativeId": "grab-01-task-004-alt-001",
+      "response": "berhenti kat sini",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "grab-01-task-004",
+      "alternativeId": "grab-01-task-004-alt-002",
+      "response": "berhenti sini",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "grab-01-task-004",
+      "alternativeId": "grab-01-task-004-alt-003",
+      "response": "stop kat sini",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "grab-01-task-004",
+      "alternativeId": "grab-01-task-004-alt-004",
+      "response": "stop sini",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "grab-01-task-004",
+      "alternativeId": "grab-01-task-004-alt-005",
+      "response": "turun sini",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    }
+  ],
+  "comprehensionReviews": [
+    {
+      "questionId": "grab-01-understand-01",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "questionId": "grab-01-understand-02",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "questionId": "grab-01-understand-03",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    }
+  ],
+  "audioReviews": [
+    {
+      "assetId": "grab-01_line-1",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "grab-01_line-2",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "grab-01_line-3",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "grab-01_line-4",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "grab-01_line-5",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "grab-01_line-6",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "grab-01_line-7",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "grab-01_line-8",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "grab-01_line-9",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "grab-01-phrase-01",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "grab-01-phrase-02",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "grab-01-phrase-03",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "grab-01-phrase-04",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "grab-01-phrase-05",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    }
+  ],
+  "comparisonReviews": [
+    {
+      "comparisonId": "grab-01-comparison-001",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "spoken": "nak pergi",
+      "formal": "hendak pergi"
+    },
+    {
+      "comparisonId": "grab-01-comparison-002",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "spoken": "ni / tu",
+      "formal": "ini / itu"
+    },
+    {
+      "comparisonId": "grab-01-comparison-003",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "spoken": "kat sini",
+      "formal": "di sini"
+    },
+    {
+      "comparisonId": "grab-01-comparison-004",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "spoken": "depan sikit",
+      "formal": "sedikit ke hadapan"
+    },
+    {
+      "comparisonId": "grab-01-comparison-005",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "spoken": "boleh?",
+      "formal": "bolehkah?"
+    },
+    {
+      "comparisonId": "grab-01-comparison-006",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "spoken": "je",
+      "formal": "sahaja"
+    }
+  ],
+  "taskTurnReviews": [
+    {
+      "taskId": "grab-01-task-001",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "prompt": "Hi. Nak pergi KLCC, ya?",
+      "model": "Ya, betul."
+    },
+    {
+      "taskId": "grab-01-task-002",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "prompt": "You're hot. Ask the driver to turn on the aircon.",
+      "model": "Boleh pasang aircond?"
+    },
+    {
+      "taskId": "grab-01-task-003",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "prompt": "Ikut jalan mana ya?",
+      "model": "Ikut GPS je."
+    },
+    {
+      "taskId": "grab-01-task-004",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "prompt": "You're almost there. Tell the driver you want to get off here.",
+      "model": "Turun sini."
+    },
+    {
+      "taskId": "grab-01-task-001",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task dialogue",
+      "prompt": "Hi. Nak pergi KLCC, ya?",
+      "model": "Ya, betul."
+    },
+    {
+      "taskId": "grab-01-task-001",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task model response",
+      "prompt": "Hi. Nak pergi KLCC, ya?",
+      "model": "Ya, betul."
+    },
+    {
+      "taskId": "grab-01-task-002",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task model response",
+      "prompt": "You're hot. Ask the driver to turn on the aircon.",
+      "model": "Boleh pasang aircond?"
+    },
+    {
+      "taskId": "grab-01-task-003",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task dialogue",
+      "prompt": "Ikut jalan mana ya?",
+      "model": "Ikut GPS je."
+    },
+    {
+      "taskId": "grab-01-task-003",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task model response",
+      "prompt": "Ikut jalan mana ya?",
+      "model": "Ikut GPS je."
+    },
+    {
+      "taskId": "grab-01-task-004",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task model response",
+      "prompt": "You're almost there. Tell the driver you want to get off here.",
+      "model": "Turun sini."
+    }
+  ],
+  "referencePhraseReviews": [
+    {
+      "phraseId": "grab-01-reference-01",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "grab-01-reference-02",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    }
+  ]
+}

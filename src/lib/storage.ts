@@ -1,10 +1,16 @@
-import type { CardProgress, ProgressMap, FailedAnswer, UserSettings } from '../types';
+import type { CardProgress, ProgressMap, FailedAnswer, UserSettings, SavedPhrase } from '../types';
+import { getEvents } from './track';
 
-const PROGRESS_KEY = 'em.progress.v1';
+const PROGRESS_KEY = 'em.progress.v2';
+const LEGACY_PROGRESS_KEY = 'em.progress.v1';
 const FAILED_KEY = 'em.failed.v1';
 const EVENTS_KEY = 'em.events.v1';
 const SETTINGS_KEY = 'em.settings.v1';
 const REWARD_META_KEY = '__em_rewards_v1';
+const ONBOARDING_KEY = 'em.onboarding.v1';
+const SAVED_PHRASES_KEY = 'em.phrasebook.v1';
+const SURVIVAL_KEY = 'em.survival.v1';
+const STORAGE_PROBE_KEY = 'em.storage.probe';
 
 export const SCENARIO_COMPLETION_XP = 10;
 
@@ -58,11 +64,31 @@ function safeRemoveItem(key: string): void {
   delete memoryStore[key];
 }
 
+export function isPersistentStorageAvailable(): boolean {
+  try {
+    if (typeof window === 'undefined' || !window.localStorage) return false;
+    window.localStorage.setItem(STORAGE_PROBE_KEY, '1');
+    const available = window.localStorage.getItem(STORAGE_PROBE_KEY) === '1';
+    window.localStorage.removeItem(STORAGE_PROBE_KEY);
+    return available;
+  } catch {
+    try { window.localStorage.removeItem(STORAGE_PROBE_KEY); } catch { /* storage is unavailable */ }
+    return false;
+  }
+}
+
 /* --- Progress --- */
 
 function readProgressSnapshot(): ProgressSnapshot {
   try {
-    const raw = safeGetItem(PROGRESS_KEY);
+    let raw = safeGetItem(PROGRESS_KEY);
+    if (!raw) {
+      raw = safeGetItem(LEGACY_PROGRESS_KEY);
+      if (raw) {
+        // Copy-forward migration: preserve v1 until a user explicitly deletes local data.
+        safeSetItem(PROGRESS_KEY, raw);
+      }
+    }
     if (!raw) return { progress: {}, rewards: null };
     const parsed = JSON.parse(raw);
     if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return { progress: {}, rewards: null };
@@ -214,7 +240,7 @@ export function getFailedAnswers(): FailedAnswer[] {
 
 const DEFAULT_SETTINGS: UserSettings = {
   defaultSpeed: 'normal',
-  showEnglishDefault: true
+  showEnglishDefault: false
 };
 
 export function loadSettings(): UserSettings {
@@ -235,13 +261,82 @@ export function saveSettings(settings: UserSettings): void {
   }
 }
 
+export function hasCompletedOnboarding(): boolean {
+  return safeGetItem(ONBOARDING_KEY) === 'completed';
+}
+
+export function completeOnboarding(): void {
+  safeSetItem(ONBOARDING_KEY, 'completed');
+}
+
+export function exportLocalData(): {
+  schemaVersion: 2;
+  exportedAt: string;
+  progress: ProgressMap;
+  rewards: Pick<RewardLedger, 'totalXp' | 'completionRewardIds'>;
+  failedAnswers: FailedAnswer[];
+  activityEvents: ReturnType<typeof getEvents>;
+  settings: UserSettings;
+  onboardingCompleted: boolean;
+  savedPhrases: SavedPhrase[];
+  survivalCompleted: boolean;
+} {
+  return {
+    schemaVersion: 2,
+    exportedAt: new Date().toISOString(),
+    progress: loadProgress(),
+    rewards: loadRewardProgress(),
+    failedAnswers: getFailedAnswers(),
+    activityEvents: getEvents(),
+    settings: loadSettings(),
+    onboardingCompleted: hasCompletedOnboarding(),
+    savedPhrases: loadSavedPhrases(),
+    survivalCompleted: hasCompletedSurvival()
+  };
+}
+
+export function hasCompletedSurvival(): boolean {
+  return safeGetItem(SURVIVAL_KEY) === 'completed';
+}
+
+export function completeSurvival(): void {
+  safeSetItem(SURVIVAL_KEY, 'completed');
+}
+
+export function loadSavedPhrases(): SavedPhrase[] {
+  try {
+    const parsed = JSON.parse(safeGetItem(SAVED_PHRASES_KEY) ?? '[]');
+    return Array.isArray(parsed) ? parsed.filter((item): item is SavedPhrase =>
+      item && typeof item.id === 'string' && typeof item.scenarioId === 'string'
+      && typeof item.malay === 'string' && typeof item.english === 'string'
+      && typeof item.savedAt === 'number'
+    ) : [];
+  } catch {
+    return [];
+  }
+}
+
+export function savePhraseForReview(phrase: Omit<SavedPhrase, 'savedAt'>): void {
+  const saved = loadSavedPhrases();
+  if (saved.some((item) => item.id === phrase.id)) return;
+  safeSetItem(SAVED_PHRASES_KEY, JSON.stringify([...saved, { ...phrase, savedAt: Date.now() }]));
+}
+
+export function removeSavedPhrase(phraseId: string): void {
+  safeSetItem(SAVED_PHRASES_KEY, JSON.stringify(loadSavedPhrases().filter((phrase) => phrase.id !== phraseId)));
+}
+
 /* --- Clear Data --- */
 
 export function clearAllData(): void {
   safeRemoveItem(PROGRESS_KEY);
+  safeRemoveItem(LEGACY_PROGRESS_KEY);
   safeRemoveItem(FAILED_KEY);
   safeRemoveItem(EVENTS_KEY);
   safeRemoveItem(SETTINGS_KEY);
+  safeRemoveItem(ONBOARDING_KEY);
+  safeRemoveItem(SAVED_PHRASES_KEY);
+  safeRemoveItem(SURVIVAL_KEY);
   Object.keys(memoryStore).forEach((k) => delete memoryStore[k]);
 }
 

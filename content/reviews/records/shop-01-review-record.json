@@ -1,0 +1,1108 @@
+{
+  "scenarioId": "shop-01",
+  "sourceFile": "content/cards/shop-01.json",
+  "reviewStatus": "draft",
+  "reviewer": null,
+  "reviewedAt": null,
+  "lineReviews": [
+    {
+      "lineId": "line-1",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-2",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-3",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-4",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-5",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-6",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-7",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-8",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-9",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "lineId": "line-10",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    }
+  ],
+  "phraseReviews": [
+    {
+      "phraseId": "shop-01-phrase-01",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "shop-01-phrase-02",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "shop-01-phrase-03",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "shop-01-phrase-04",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "shop-01-phrase-05",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "shop-01-phrase-06",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "phraseId": "shop-01-phrase-07",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    }
+  ],
+  "glossReviews": [],
+  "taskAlternativeReviews": [
+    {
+      "taskId": "shop-01-task-001",
+      "alternativeId": "shop-01-task-001-alt-001",
+      "response": "ada air mineral",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-001",
+      "alternativeId": "shop-01-task-001-alt-002",
+      "response": "maaf ada air mineral",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-001",
+      "alternativeId": "shop-01-task-001-alt-003",
+      "response": "ada air mineral tak",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-001",
+      "alternativeId": "shop-01-task-001-alt-004",
+      "response": "maaf ada air mineral tak",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-001",
+      "alternativeId": "shop-01-task-001-alt-005",
+      "response": "bang ada air mineral",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-001",
+      "alternativeId": "shop-01-task-001-alt-006",
+      "response": "kak ada air mineral",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-002",
+      "alternativeId": "shop-01-task-002-alt-001",
+      "response": "tak nak",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-002",
+      "alternativeId": "shop-01-task-002-alt-002",
+      "response": "takpe tak nak",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-002",
+      "alternativeId": "shop-01-task-002-alt-003",
+      "response": "takpe, tak nak",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-002",
+      "alternativeId": "shop-01-task-002-alt-004",
+      "response": "tak apa tak nak",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-002",
+      "alternativeId": "shop-01-task-002-alt-005",
+      "response": "tak nak terima kasih",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-002",
+      "alternativeId": "shop-01-task-002-alt-006",
+      "response": "takpe tak nak terima kasih",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-002",
+      "alternativeId": "shop-01-task-002-alt-007",
+      "response": "tak payah",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-002",
+      "alternativeId": "shop-01-task-002-alt-008",
+      "response": "tak apa",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-002",
+      "alternativeId": "shop-01-task-002-alt-009",
+      "response": "takpe",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-002",
+      "alternativeId": "shop-01-task-002-alt-010",
+      "response": "takpe terima kasih",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-002",
+      "alternativeId": "shop-01-task-002-alt-011",
+      "response": "tak payah terima kasih",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-002",
+      "alternativeId": "shop-01-task-002-alt-012",
+      "response": "tak apa terima kasih",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-002",
+      "alternativeId": "shop-01-task-002-alt-013",
+      "response": "tak nak plastik",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-003",
+      "alternativeId": "shop-01-task-003-alt-001",
+      "response": "boleh bayar guna kad",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-003",
+      "alternativeId": "shop-01-task-003-alt-002",
+      "response": "boleh bayar pakai kad",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-003",
+      "alternativeId": "shop-01-task-003-alt-003",
+      "response": "boleh guna kad",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-003",
+      "alternativeId": "shop-01-task-003-alt-004",
+      "response": "boleh bayar kad",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-004",
+      "alternativeId": "shop-01-task-004-alt-001",
+      "response": "tak nak",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-004",
+      "alternativeId": "shop-01-task-004-alt-002",
+      "response": "takpe tak nak",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-004",
+      "alternativeId": "shop-01-task-004-alt-003",
+      "response": "takpe, tak nak",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-004",
+      "alternativeId": "shop-01-task-004-alt-004",
+      "response": "tak apa tak nak",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-004",
+      "alternativeId": "shop-01-task-004-alt-005",
+      "response": "tak nak terima kasih",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-004",
+      "alternativeId": "shop-01-task-004-alt-006",
+      "response": "takpe tak nak terima kasih",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-004",
+      "alternativeId": "shop-01-task-004-alt-007",
+      "response": "tak payah",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-004",
+      "alternativeId": "shop-01-task-004-alt-008",
+      "response": "tak payah terima kasih",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-004",
+      "alternativeId": "shop-01-task-004-alt-009",
+      "response": "tak apa",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-004",
+      "alternativeId": "shop-01-task-004-alt-010",
+      "response": "takpe",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-004",
+      "alternativeId": "shop-01-task-004-alt-011",
+      "response": "takpe terima kasih",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "taskId": "shop-01-task-004",
+      "alternativeId": "shop-01-task-004-alt-012",
+      "response": "tak nak resit",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    }
+  ],
+  "comprehensionReviews": [
+    {
+      "questionId": "shop-01-understand-01",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "questionId": "shop-01-understand-02",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    },
+    {
+      "questionId": "shop-01-understand-03",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      }
+    }
+  ],
+  "audioReviews": [
+    {
+      "assetId": "shop-01_line-1",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "shop-01_line-2",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "shop-01_line-3",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "shop-01_line-4",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "shop-01_line-5",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "shop-01_line-6",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "shop-01_line-7",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "shop-01_line-8",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "shop-01_line-9",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "shop-01_line-10",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "shop-01-phrase-01",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "shop-01-phrase-02",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "shop-01-phrase-03",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "shop-01-phrase-04",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "shop-01-phrase-05",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "shop-01-phrase-06",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    },
+    {
+      "assetId": "shop-01-phrase-07",
+      "status": "pending",
+      "notes": "Recording, rights, pronunciation, and normal/slow quality need review."
+    }
+  ],
+  "comparisonReviews": [
+    {
+      "comparisonId": "shop-01-comparison-001",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "spoken": "tak payah",
+      "formal": "tidak perlu"
+    },
+    {
+      "comparisonId": "shop-01-comparison-002",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "spoken": "tak nak",
+      "formal": "tidak mahu"
+    },
+    {
+      "comparisonId": "shop-01-comparison-003",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "spoken": "kat belakang",
+      "formal": "di belakang"
+    },
+    {
+      "comparisonId": "shop-01-comparison-004",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "spoken": "guna",
+      "formal": "menggunakan"
+    }
+  ],
+  "taskTurnReviews": [
+    {
+      "taskId": "shop-01-task-001",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "prompt": "Ask if the shop has bottled water.",
+      "model": "Maaf, ada air mineral tak?"
+    },
+    {
+      "taskId": "shop-01-task-002",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "prompt": "Nak beg plastik?",
+      "model": "Takpe, tak nak."
+    },
+    {
+      "taskId": "shop-01-task-003",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "prompt": "Ask if you can pay by card.",
+      "model": "Boleh bayar guna kad?"
+    },
+    {
+      "taskId": "shop-01-task-004",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "prompt": "Nak resit?",
+      "model": "Tak nak."
+    },
+    {
+      "taskId": "shop-01-task-001",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task model response",
+      "prompt": "Ask if the shop has bottled water.",
+      "model": "Maaf, ada air mineral tak?"
+    },
+    {
+      "taskId": "shop-01-task-002",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task dialogue",
+      "prompt": "Nak beg plastik?",
+      "model": "Takpe, tak nak."
+    },
+    {
+      "taskId": "shop-01-task-002",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task model response",
+      "prompt": "Nak beg plastik?",
+      "model": "Takpe, tak nak."
+    },
+    {
+      "taskId": "shop-01-task-003",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task model response",
+      "prompt": "Ask if you can pay by card.",
+      "model": "Boleh bayar guna kad?"
+    },
+    {
+      "taskId": "shop-01-task-004",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task dialogue",
+      "prompt": "Nak resit?",
+      "model": "Tak nak."
+    },
+    {
+      "taskId": "shop-01-task-004",
+      "status": "pending",
+      "notes": "",
+      "criteria": {
+        "intendedMeaning": "pending",
+        "naturalness": "pending",
+        "politenessAndAddress": "pending",
+        "regionalAndRegisterFit": "pending",
+        "dialogueTranslationPhraseTaskConsistency": "pending",
+        "reviewerComments": ""
+      },
+      "itemType": "task model response",
+      "prompt": "Nak resit?",
+      "model": "Tak nak."
+    }
+  ]
+}
