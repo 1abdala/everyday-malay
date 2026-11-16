@@ -5,6 +5,8 @@ let currentAudio: HTMLAudioElement | null = null;
 let currentObjectUrl: string | null = null;
 let playbackSequence = 0;
 
+const DEVICE_TTS_RATE = { normal: 0.9, slow: 0.72 } as const;
+
 export type AudioPlayOptions = {
   src?: string;
   fallbackText: string;
@@ -37,11 +39,13 @@ function playSpeechSynthesis(text: string, speed: 'normal' | 'slow', onStart?: (
   window.speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = 'ms-MY';
-  utterance.rate = speed === 'slow' ? 0.55 : 0.95;
+  utterance.rate = DEVICE_TTS_RATE[speed];
   let voices: SpeechSynthesisVoice[];
   try { voices = window.speechSynthesis.getVoices?.() ?? []; }
   catch (error) { onError?.(error); return; }
-  const malayVoice = voices.find((voice) => voice.lang.toLowerCase().startsWith('ms'));
+  const malayVoice = voices.find((voice) => voice.lang.toLowerCase() === 'ms-my')
+    ?? voices.find((voice) => voice.lang.toLowerCase().startsWith('ms-'))
+    ?? voices.find((voice) => voice.lang.toLowerCase() === 'ms');
   if (voices.length > 0 && !malayVoice) { onError?.(new Error('No Malay device voice is available.')); return; }
   if (malayVoice) utterance.voice = malayVoice;
   utterance.onstart = () => onStart?.(true);
