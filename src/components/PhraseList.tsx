@@ -114,11 +114,11 @@ export const PhraseList: React.FC<PhraseListProps> = ({ phrases, scenarioId }) =
 
         return (
           <div key={idx} className="phrase-card">
-            <div className="phrase-ms">{phrase.ms}</div>
-            <div className="phrase-en">{phrase.en}</div>
+            <div className="phrase-ms malay-text" lang="ms">{phrase.ms}</div>
+            <div className="phrase-en english-text" lang="en">{phrase.en}</div>
             {allGlossesReviewed ? (
               <ul className="phrase-word-glosses" aria-label={`Reviewed word meanings for ${phrase.ms}`}>
-                {approvedGlosses.map((gloss, glossIndex) => <li key={`${phrase.id}-${glossIndex}`}><strong>{gloss.malay}</strong><span>{gloss.english}</span></li>)}
+                {approvedGlosses.map((gloss, glossIndex) => <li key={`${phrase.id}-${glossIndex}`}><strong className="malay-text" lang="ms">{gloss.malay}</strong><span className="english-text" lang="en">{gloss.english}</span></li>)}
               </ul>
             ) : (
               <p className="word-breakdown-pending">Word breakdown coming soon; this phrase has not been given unreviewed word meanings.</p>

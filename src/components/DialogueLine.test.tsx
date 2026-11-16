@@ -17,4 +17,13 @@ describe('DialogueLine', () => {
     act(() => (host!.querySelector('button.dialogue-translation-toggle') as HTMLButtonElement).click());
     expect(host!.textContent).toContain('Thank you.');
   });
+
+  it('marks Malay and English separately for consistent language styling', () => {
+    host = document.createElement('div'); document.body.append(host); root = createRoot(host);
+    act(() => root?.render(<DialogueLine line={{ id: 'line-1', who: 'npc', ms: 'Terima kasih.', en: 'Thank you.' }} showEnglish />));
+    expect(host!.querySelector('.bubble-text-ms')?.getAttribute('lang')).toBe('ms');
+    expect(host!.querySelector('.bubble-text-ms')?.classList.contains('malay-text')).toBe(true);
+    expect(host!.querySelector('.bubble-text-en')?.getAttribute('lang')).toBe('en');
+    expect(host!.querySelector('.bubble-text-en')?.classList.contains('english-text')).toBe(true);
+  });
 });

@@ -161,7 +161,7 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
         {savedPhrases.length === 0 ? <p className="setting-desc">Save a phrase from Key Phrases to keep it here for quick practice.</p> : (
           <div className="saved-phrase-list">
             {savedPhrases.map((phrase) => <article className="saved-phrase" key={phrase.id}>
-              <strong>{phrase.malay}</strong><span>{phrase.english}</span>
+              <strong className="malay-text" lang="ms">{phrase.malay}</strong><span className="english-text" lang="en">{phrase.english}</span>
               <button type="button" className="btn-ghost" aria-label={`Remove saved phrase ${phrase.malay}`} onClick={() => {
                 removeSavedPhrase(phrase.id);
                 setSavedPhrases((current) => current.filter((item) => item.id !== phrase.id));

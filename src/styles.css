@@ -1424,3 +1424,79 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   font-size: 0.82rem;
   color: var(--color-text-muted);
 }
+
+/* Shared Everyday Malay typography and language-learning color system.
+   Google Fonts are progressive enhancement; these local/system fallbacks remain usable offline. */
+:root {
+  --font-body: "Nunito Sans", "Trebuchet MS", Arial, sans-serif;
+  --font-display: "Nunito", "Nunito Sans", "Trebuchet MS", Arial, sans-serif;
+  --vocab-accent: #ffb454;
+  --vocab-accent-soft: rgba(255, 180, 84, .12);
+  --english-secondary: #bdc8d2;
+}
+
+#root,
+#root * {
+  font-family: var(--font-body) !important;
+}
+
+#root :is(h1, h2, h3, h4, .flash-welcome h1, .flash-deck-heading h2, .scene-card-copy h3, .flash-card-content strong, .step-title, .survival-panel h1, .survival-panel h2) {
+  font-family: var(--font-display) !important;
+  font-weight: 800;
+  letter-spacing: -.025em;
+}
+
+.malay-text {
+  color: var(--vocab-accent) !important;
+  font-weight: 800;
+  letter-spacing: -.012em;
+}
+
+.english-text {
+  color: var(--english-secondary) !important;
+  font-weight: 400;
+}
+
+.bubble-text-ms {
+  margin-top: 5px;
+  font-size: clamp(1.14rem, 4.8vw, 1.28rem);
+  font-weight: 800;
+  line-height: 1.42;
+}
+
+.bubble-text-en { margin-top: 6px; }
+
+.phrase-ms {
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  padding: 4px 9px;
+  border-radius: 9px;
+  background: var(--vocab-accent-soft);
+  font-weight: 800;
+}
+
+.phrase-word-glosses .malay-text,
+.saved-phrase .malay-text,
+.survival-phrase .malay-text { color: var(--vocab-accent) !important; }
+
+.pill-spoken .malay-text { color: #172331 !important; }
+
+.word-tile[lang="ms"] { color: var(--vocab-accent) !important; font-weight: 800; }
+.word-tile.selected[lang="ms"] { color: #ffd18b !important; }
+
+.turn-dialogue-prompt.malay-text {
+  font-size: clamp(1.18rem, 5vw, 1.36rem);
+  font-weight: 800;
+  line-height: 1.42;
+}
+
+.feedback-box .malay-text { display: block; margin: 4px 0; }
+.survival-phrase .english-text { display: block; }
+.phrase-en, .bubble-text-en, .turn-subtext { line-height: 1.55; }
+.field-guide .malay-text { color: #a94722 !important; }
+
+@media (max-width: 360px) {
+  .bubble-text-ms { font-size: 1.12rem; }
+  .phrase-ms { font-size: 1.12rem; }
+}

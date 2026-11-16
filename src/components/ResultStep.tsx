@@ -55,7 +55,7 @@ export const ResultStep: React.FC<ResultStepProps> = ({
       <p className="result-xp-total">Your XP total <strong>{totalXp} XP</strong></p>
       <p className="result-xp-total">XP rewards finishing practice; it does not measure how well you speak Malay.</p>
 
-      {result.phrasesToRevisit.length > 0 && <section className="result-revisit"><strong>Phrases to revisit</strong><ul>{result.phrasesToRevisit.map((phrase, idx) => <li key={`${phrase}-${idx}`}>{phrase}</li>)}</ul></section>}
+      {result.phrasesToRevisit.length > 0 && <section className="result-revisit"><strong>Phrases to revisit</strong><ul>{result.phrasesToRevisit.map((phrase, idx) => <li key={`${phrase}-${idx}`} className="malay-text" lang="ms">{phrase}</li>)}</ul></section>}
 
       <div className="result-actions">
         <button type="button" className="btn-primary" onClick={onContinuePath}>Continue on Path →</button>

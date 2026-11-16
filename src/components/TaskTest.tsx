@@ -264,8 +264,8 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete, isActive, 
         {/* Turn Prompt Content */}
         {currentTurn.type === 'npc' ? (
           <div>
-            <div className="turn-dialogue-prompt">"{currentTurn.ms}"</div>
-            <div className="turn-subtext">{currentTurn.en}</div>
+            <div className="turn-dialogue-prompt malay-text" lang="ms">"{currentTurn.ms}"</div>
+            <div className="turn-subtext english-text" lang="en">{currentTurn.en}</div>
             {currentTurn.audio && (
               <div style={{ marginTop: '8px' }}>
                 <AudioButtons
@@ -321,6 +321,7 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete, isActive, 
               type="text"
               className="task-text-input"
               placeholder="Type your response in Malay..."
+              lang="ms"
               value={typedInput}
               onChange={(e) => setTypedInput(e.target.value)}
               disabled={turnState.status === 'passed' || (turnState.status === 'assisted' && assistedReconstructed)}
@@ -345,7 +346,7 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete, isActive, 
           {turnState.status === 'passed' && (
             <div className="feedback-box feedback-success" role="status">
               <span style={{ fontWeight: 700 }}>✓ Betul! (Correct)</span>
-              <span>One suggested answer: <strong>{currentTurn.model}</strong></span>
+              <span>One suggested answer: <strong className="malay-text" lang="ms">{currentTurn.model}</strong></span>
             </div>
           )}
 
@@ -361,7 +362,7 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete, isActive, 
           {turnState.status === 'assisted' && (
             <div className="feedback-box feedback-assisted" role="alert">
               <span style={{ fontWeight: 700 }}>Suggested response:</span>
-              <span style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--color-primary)' }}>
+              <span className="malay-text" lang="ms" style={{ fontSize: '1.1rem', fontWeight: 700 }}>
                 {currentTurn.model}
               </span>
               <span>{assistedReconstructed ? 'Good reconstruction. You can continue.' : 'Now rebuild the response with the word blocks, or type it from memory.'}</span>
@@ -374,10 +375,10 @@ export const TaskTest: React.FC<TaskTestProps> = ({ card, onComplete, isActive, 
           {isConcluding && card.task.conclusion && (
             <div className="feedback-box feedback-assisted" style={{ marginTop: '10px' }}>
               <span style={{ fontWeight: 700 }}>Worker / Driver:</span>
-              <span style={{ fontSize: '1.1rem', fontWeight: 700 }}>
+              <span className="malay-text" lang="ms" style={{ fontSize: '1.1rem', fontWeight: 700 }}>
                 "{card.task.conclusion.ms}"
               </span>
-              <span style={{ fontSize: '0.88rem', color: 'var(--color-text-muted)' }}>
+              <span className="english-text" lang="en" style={{ fontSize: '0.88rem' }}>
                 {card.task.conclusion.en}
               </span>
               {card.task.conclusion.audio && (

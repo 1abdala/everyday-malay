@@ -102,6 +102,7 @@ export const WordBank: React.FC<WordBankProps> = ({
               key={`${tile.id}-sel-${idx}`}
               type="button"
               className="word-tile selected"
+              lang="ms"
               onClick={() => handleRemoveTile(idx)}
               disabled={disabled}
               title="Tap to remove"
@@ -120,6 +121,7 @@ export const WordBank: React.FC<WordBankProps> = ({
               key={tile.id}
               type="button"
               className={`word-tile ${isUsed ? 'used' : ''}`}
+              lang="ms"
               onClick={() => handleTileClick(tile)}
               disabled={disabled || isUsed}
             >

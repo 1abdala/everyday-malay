@@ -22,12 +22,12 @@ export const DialogueLine: React.FC<DialogueLineProps> = ({ line, showEnglish, s
           </span>
         </div>
 
-        <div className="bubble-text-ms">{line.ms}</div>
+        <div className="bubble-text-ms malay-text" lang="ms">{line.ms}</div>
 
         <button type="button" className="dialogue-translation-toggle" aria-expanded={revealed} onClick={() => setRevealed((value) => !value)}>
           {revealed ? 'Hide English' : 'Show English meaning'}
         </button>
-        {revealed && <div className="bubble-text-en">{line.en}</div>}
+        {revealed && <div className="bubble-text-en english-text" lang="en">{line.en}</div>}
 
         <div className="bubble-audio-actions">
           <AudioButtons

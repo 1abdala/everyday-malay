@@ -13,14 +13,14 @@ export const ChipRow: React.FC<ChipRowProps> = ({ chips }) => {
           <div className="chip-pair">
             <div className="pill-spoken" title="Spoken / Bahasa pasar form">
               <span>🗣️</span>
-              <span>{chip.spoken}</span>
+              <span className="malay-text" lang="ms">{chip.spoken}</span>
             </div>
             <span className="chip-vs">vs</span>
             <div className="pill-formal" title="Formal / Textbook Malay form">
-              <span>📖 {chip.formal}</span>
+              <span className="malay-text" lang="ms">📖 {chip.formal}</span>
             </div>
           </div>
-          <div className="chip-note">{chip.note}</div>
+          <div className="chip-note english-text" lang="en">{chip.note}</div>
         </div>
       ))}
     </div>
