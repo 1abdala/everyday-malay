@@ -8,7 +8,6 @@
 **Product claim:** helps learners practise practical spoken Malaysian Malay in everyday situations
 **Not yet supported:** a complete beginner curriculum, proficiency certification, authentic recorded Malay audio, or validated pronunciation assessment
 
----
 
 ## What the product is
 
