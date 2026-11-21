@@ -2,7 +2,6 @@
 
 ## Consultant review brief
 
-This README describes the application as it exists today and invites a practical review of what is needed to make it a useful, dependable product for real learners. Please treat the product gaps below as open questions, not as features that already exist.
 
 **Product stage:** working prototype / pre-release review
 **Current playable content:** three scenarios, all marked `draft`
